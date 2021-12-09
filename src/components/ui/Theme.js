@@ -1,14 +1,18 @@
 import { createTheme } from '@mui/material/styles';
 
-const arcGreen = '#00796b';
+const quiroGreen = '#04bba6';
+const quiroOrange = '#03443d'
 
 export default createTheme({
   palette:{
     common:{
-      green: `${arcGreen}`
+      green: `${quiroGreen}`
     },
     primary:{
-      main: `${arcGreen}`
+      main: `${quiroGreen}`
+    },
+    secondary:{
+      main: `${quiroOrange}`
     }
   },
   typography:{
