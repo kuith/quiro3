@@ -1,15 +1,24 @@
 import React, {useState} from 'react';
+import { StyledEngineProvider } from '@mui/material/styles';
 import { Link } from "react-router-dom";
 
+import { makeStyles } from '@material-ui/core/styles';
+//import { makeStyles } from '@mui/styles';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
-import { makeStyles } from '@material-ui/core/styles';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import Button from '@mui/material/Button';
+import MenuIcon from '@mui/icons-material/Menu';
+import IconButton from '@mui/material/IconButton';
 
 import Logo from '../../../util/images/logo.svg';
-
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -26,9 +35,12 @@ function ElevationScroll(props) {
 const useStyles = makeStyles(theme=>({
   toolbarMargin: {
     ...theme.mixins.toolbar,
+    [theme.breakpoints.down("xs")]:{
+      height:"4em"
+    }
   },
   logo:{
-    height:"4em"
+    height:"4em",
   },
   tabContainer:{
     marginLeft: "auto",
@@ -37,49 +49,131 @@ const useStyles = makeStyles(theme=>({
     ...theme.typography.tab,
     fontSize:"1.2rem",
     marginLeft:"25px",
+    marginRight:"50px",
     textTransform:"none"
+  },
+  menu:{
+    backgroundColor: "#04bba6"
+  },
+  menuItem:{
+    ...theme.typography.tab,
+    opacity:0.7,
+    "&:hover":{
+      opacity:1
+    }
+  },
+  drawerIcon:{
+    height:"50px",
+    width:"50px",
+  },
+  drawerIconContainer:{
+    marginLeft: "auto",
   }
 }))
 
-export default function Header(props){
+export default function Header({datos}){
+  
+  const datosMenu = datos;
   const classes = useStyles();
+  const theme = useTheme();
+  const iOS = typeof navigator !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const matches = useMediaQuery(theme.breakpoints.down('md'));
+
+  const [openDrawer, setOpenDrawer] = useState(false)
   const [value, setValue] = useState(0);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [openMenu, setOpenMenu] = useState(false);
 
   const handleChange=(e,newValue) => {
     setValue(newValue)
   }
 
+  const handleClick = (e)=> {
+    setAnchorEl(e.currentTarget);
+    setOpenMenu(true);
+  }
+  const handleClose = () => {
+    setAnchorEl(null);
+    setOpenMenu(false);
+  };
+
+  const menuItemData = datosMenu.map(servicio=>(
+    <MenuItem onClick={()=>{handleClose(); setValue(1)}} 
+      component={Link} to ={`/servicios/${servicio.link}`}  
+      id={servicio.nombre}
+      classes={{root: classes.menuItem}}
+    >
+      {servicio.nombre}
+    </MenuItem>
+  ));
+
+  const tabs = (
+    <>
+    <Tabs 
+        onChange={handleChange}
+        indicatorColor="secondary"
+        textColor="inherit" 
+        value={value} 
+        className={classes.tabContainer}
+      >
+        <Tab 
+          className={classes.tabItem}
+          component={Link} to ="/"
+          label="Inicio"
+        />
+        <Tab 
+          className={classes.tabItem}
+          aria-owns={anchorEl ? 'services-menu': undefined}
+          aria-haspopup={anchorEl ? true : undefined}   
+          component={Link} to ="/servicios/serviciosGeneral" 
+          onMouseOver={event=>handleClick(event)}
+          label="Servicios"/>
+        <Tab 
+          className={classes.tabItem}
+          component={Link} to ="/contacto" 
+          label="Contacto"/>
+      </Tabs>
+      <Menu id="services-menu" 
+        anchorEl={anchorEl} 
+        open={openMenu} 
+        onClose={handleClose}
+        classes={{paper:classes.menu}}
+        MenuListProps={{onMouseLeave:handleClose}}
+      >
+        {menuItemData}
+      </Menu>
+    </>
+  );
+
+  const drawer = (
+    <>
+      <SwipeableDrawer disableBackdropTransition={!iOS} disableDiscovery={iOS}
+        open={openDrawer}
+        onClose={() => setOpenDrawer(false)}
+        onOpen={() => setOpenDrawer(true)}
+      >
+        Probando el drawer
+      </SwipeableDrawer>
+      <IconButton className={classes.drawerIconContainer} onClick={()=>setOpenDrawer(!openDrawer)} disableRipple>
+        <MenuIcon className={classes.drawerIcon}/>
+      </IconButton>
+    </>
+  );
+  
   return(
+    <StyledEngineProvider injectFirst>
     <>
       <ElevationScroll>
         <AppBar position="fixed">
           <Toolbar disableGutters>
             <img src={Logo} alt="Logo Quirodiet" className={classes.logo}/>
-            <Tabs 
-              onChange={handleChange}
-              indicatorColor="secondary"
-              textColor="inherit" 
-              value={value} 
-              className={classes.tabContainer}
-            >
-              <Tab 
-                className={classes.tabItem}
-                component={Link} to ="/"
-                label="Inicio"
-              />
-              <Tab 
-                className={classes.tabItem}
-                component={Link} to ="/servicios" 
-                label="Servicios"/>
-              <Tab 
-                className={classes.tabItem}
-                component={Link} to ="/contacto" 
-                label="Contacto"/>
-            </Tabs>
+            {matches ? drawer:tabs}           
           </Toolbar>
         </AppBar>
       </ElevationScroll>
       <div className={classes.toolbarMargin}/>
     </>
+    </StyledEngineProvider>
   )
+  
 }

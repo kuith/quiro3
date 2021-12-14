@@ -1,7 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 
 const quiroGreen = '#04bba6';
-const quiroOrange = '#03443d'
+const quiroDarkGreen = '#03443d'
 
 export default createTheme({
   palette:{
@@ -12,7 +12,7 @@ export default createTheme({
       main: `${quiroGreen}`
     },
     secondary:{
-      main: `${quiroOrange}`
+      main: `${quiroDarkGreen}`
     }
   },
   typography:{
