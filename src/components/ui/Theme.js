@@ -1,9 +1,10 @@
 import { createTheme } from '@mui/material/styles';
+//import { ThemeProvider, createTheme, makeStyles } from '@material-ui/core/styles';
 
 const quiroGreen = '#04bba6';
-const quiroDarkGreen = '#03443d'
+const quiroDarkGreen = '##cddc39'
 
-export default createTheme({
+const theme = createTheme({
   palette:{
     common:{
       green: `${quiroGreen}`
@@ -20,3 +21,5 @@ export default createTheme({
     fontSize:16
   }
 });
+
+export default theme;

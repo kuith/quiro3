@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { StyledEngineProvider } from '@mui/material/styles';
 import { Link } from "react-router-dom";
 
@@ -12,13 +12,22 @@ import Tab from '@mui/material/Tab';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
 
 import Logo from '../../../util/images/logo.svg';
+
+useEffect(() => {
+
+})
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -53,7 +62,7 @@ const useStyles = makeStyles(theme=>({
     textTransform:"none"
   },
   menu:{
-    backgroundColor: "#04bba6"
+    backgroundColor: theme.palette.secondary.main,
   },
   menuItem:{
     ...theme.typography.tab,
@@ -68,12 +77,24 @@ const useStyles = makeStyles(theme=>({
   },
   drawerIconContainer:{
     marginLeft: "auto",
+  },
+  drawer:{
+    backgroundColor:theme.palette.primary.main,
+  },
+  drawerItem:{
+    ...theme.typography.tab,
+    color: "white",
+    opacity: 0.7
+  },
+  drawerItemSelected: {
+    opacity: 1,
   }
 }))
 
-export default function Header({datos}){
+export default function Header({datMenu, listaDrawer}){
   
-  const datosMenu = datos;
+  const datosMenu = datMenu;
+  const datosLista = listaDrawer;
   const classes = useStyles();
   const theme = useTheme();
   const iOS = typeof navigator !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent);
@@ -105,6 +126,21 @@ export default function Header({datos}){
     >
       {servicio.nombre}
     </MenuItem>
+  ));
+
+  const listItemData = datosLista.map((item, index)=>(
+    <ListItem 
+      button component={Link} to={`${item.link}`}
+      onClick={()=>setOpenDrawer(false)}
+    >
+      <ListItemText 
+        classes={value === index ? [classes.drawerItem, classes.drawerItemSelected] : 
+        classes.drawerItem}  
+        disableTypography
+      >
+        {item.nombre}
+      </ListItemText>
+    </ListItem>
   ));
 
   const tabs = (
@@ -151,8 +187,11 @@ export default function Header({datos}){
         open={openDrawer}
         onClose={() => setOpenDrawer(false)}
         onOpen={() => setOpenDrawer(true)}
+        classes={{paper:classes.drawer}}
       >
-        Probando el drawer
+        <List disablePadding>
+          {listItemData}
+        </List>
       </SwipeableDrawer>
       <IconButton className={classes.drawerIconContainer} onClick={()=>setOpenDrawer(!openDrawer)} disableRipple>
         <MenuIcon className={classes.drawerIcon}/>

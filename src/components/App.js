@@ -8,7 +8,8 @@ import Header from './ui/containers/header';
 import Inicio from '../components/vistas/inicio';
 import ServiciosGeneral from '../components/vistas/serviciosGeneral';
 
-import {menuServicios} from '../util/datos/datosServicios';
+import {menuServicios} from '../util/datos/datos';
+import {listaDrawer} from '../util/datos/datos';
 import Bonos from '../components/vistas/servicios/bonos';
 import Deportivo from '../components/vistas/servicios/deportivo';
 import Dietetico from '../components/vistas/servicios/dietetico';
@@ -22,10 +23,11 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>  
-        <Header datos={menuServicios}/>
+        <Header datMenu={menuServicios} listaDrawer={listaDrawer}/>
         <Routes>
           <Route exact path="/" element={<Inicio />} />
           <Route exact path="/servicios/serviciosGeneral" element={<ServiciosGeneral />} />
+          <Route exact path="/servicios/bonos" element={<Bonos />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

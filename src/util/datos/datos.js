@@ -11,6 +11,13 @@ const menuServicios = [
   { nombre: "Eliminación de tatuajes", link: "tatoo" }
 ]
 
+const listaDrawer = [
+  {nombre: "Inicio", link: "/" },
+  {nombre: "Servicios", link: "/servicios/serviciosGeneral" },
+  {nombre: "Contacto", link: "/contacto" },
+  
+]
+
 const datosQuiromasajeInicio = {
   nombre: "Quiromasaje"
 }
@@ -38,6 +45,7 @@ const datosTatooInicio = {
 
 export {
   menuServicios,
+  listaDrawer,
   datosQuiromasajeInicio,
   datosOsteopatiaInicio,
   datosPresoterapiaInicio,
