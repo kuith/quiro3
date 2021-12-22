@@ -25,10 +25,6 @@ import ListItemText from '@mui/material/ListItemText';
 
 import Logo from '../../../util/images/logo.svg';
 
-useEffect(() => {
-
-})
-
 function ElevationScroll(props) {
   const { children } = props;
   const trigger = useScrollTrigger({
@@ -118,8 +114,8 @@ export default function Header({datMenu, listaDrawer}){
     setOpenMenu(false);
   };
 
-  const menuItemData = datosMenu.map(servicio=>(
-    <MenuItem onClick={()=>{handleClose(); setValue(1)}} 
+  const serviciosData = datosMenu.map(servicio=>(
+    <MenuItem onClick={()=>{handleClose()}} 
       component={Link} to ={`/servicios/${servicio.link}`}  
       id={servicio.nombre}
       classes={{root: classes.menuItem}}
@@ -176,7 +172,7 @@ export default function Header({datMenu, listaDrawer}){
         classes={{paper:classes.menu}}
         MenuListProps={{onMouseLeave:handleClose}}
       >
-        {menuItemData}
+        {serviciosData}
       </Menu>
     </>
   );

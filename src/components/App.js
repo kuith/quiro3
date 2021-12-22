@@ -5,6 +5,7 @@ import {BrowserRouter, Route, Routes } from "react-router-dom";
 import theme from './ui/Theme';
 
 import Header from './ui/containers/header';
+import Footer from './ui/containers/Footer';
 import Inicio from '../components/vistas/inicio';
 import ServiciosGeneral from '../components/vistas/serviciosGeneral';
 
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/servicios/serviciosGeneral" element={<ServiciosGeneral />} />
           <Route exact path="/servicios/bonos" element={<Bonos />} />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </ThemeProvider>
   );
