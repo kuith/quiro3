@@ -1,11 +1,10 @@
-import { createTheme } from '@mui/material/styles';
-//import { ThemeProvider, createTheme, makeStyles } from '@material-ui/core/styles';
-import orange from '@mui/material/colors/orange';
+//import { createTheme } from '@mui/material/styles';
+import { createMuiTheme} from '@material-ui/core/styles';
 
 const quiroGreen = '#04bba6';
 const quiroDarkGreen = '##cddc39'
 
-const theme = createTheme({
+const theme = createMuiTheme({
   
   palette:{
     common:{
