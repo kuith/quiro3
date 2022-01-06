@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-//import { StyledEngineProvider } from '@material-ui/styles';
+import { StylesProvider  } from '@material-ui/styles';
 import { Link } from "react-router-dom";
 
 import { makeStyles } from '@material-ui/styles';
@@ -41,12 +41,17 @@ function ElevationScroll(props) {
 const useStyles = makeStyles(theme=>({
   toolbarMargin: {
     ...theme.mixins.toolbar,
-    [theme.breakpoints.down("xs")]:{
-      height:"4em"
-    }
+    marginBottom: "1em",
+    [theme.breakpoints.down("xs")]: {
+      marginBottom: "1em"
+    },
+
   },
-  logo:{
-    height:"4em",
+  logo: {
+    height: "4em",
+    [theme.breakpoints.down("xs")]: {
+      height: "3em"
+    },
   },
   tabContainer:{
     marginLeft: "auto",
@@ -102,6 +107,8 @@ export default function Header({datMenu, listaDrawer}){
   const [anchorEl, setAnchorEl] = useState(null);
   const [openMenu, setOpenMenu] = useState(false);
 
+
+
   const handleChange=(e,newValue) => {
     setValue(newValue)
   }
@@ -115,8 +122,9 @@ export default function Header({datMenu, listaDrawer}){
     setOpenMenu(false);
   };
 
-  const serviciosData = datosMenu.map(servicio=>(
+  const serviciosData = datosMenu.map((servicio,i)=>(
     <MenuItem onClick={()=>{handleClose()}} 
+      key={`${servicio}${i}`}
       component={Link} to ={`/servicios/${servicio.link}`}  
       id={servicio.nombre}
       classes={{root: classes.menuItem}}
@@ -127,6 +135,7 @@ export default function Header({datMenu, listaDrawer}){
 
   const listItemData = datosLista.map((item, index)=>(
     <ListItem 
+      key={`${item}${index}`}
       button component={Link} to={`${item.link}`}
       onClick={()=>setOpenDrawer(false)}
     >
@@ -197,7 +206,7 @@ export default function Header({datMenu, listaDrawer}){
   );
   
   return(
-    // <StyledEngineProvider injectFirst>
+    <StylesProvider  injectFirst>
     <>
       <ElevationScroll>
         <AppBar position="fixed">
@@ -209,7 +218,7 @@ export default function Header({datMenu, listaDrawer}){
       </ElevationScroll>
       <div className={classes.toolbarMargin}/>
     </>
-    //</StyledEngineProvider>
+    </StylesProvider >
   )
   
 }
