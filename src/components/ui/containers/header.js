@@ -174,6 +174,10 @@ export default function Header({datMenu, listaDrawer}){
           className={classes.tabItem}
           component={Link} to ="/contacto" 
           label="Contacto"/>
+        <Tab 
+          className={classes.tabItem}
+          component={Link} to ="/instalaciones" 
+          label="Instalaciones"/>
       </Tabs>
       <Menu id="services-menu" 
         anchorEl={anchorEl} 

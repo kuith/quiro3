@@ -93,6 +93,13 @@ export default function Footer() {
               </Grid>
             </Grid>
           </Grid>
+          <Grid item className={classes.gridItem}>
+            <Grid container direction='column' spacing={2}>
+              <Grid item component={Link} to="/instalaciones" className={classes.link}>
+                Instalaciones
+              </Grid>
+            </Grid>
+          </Grid>
 
         </Grid>
       </Hidden>

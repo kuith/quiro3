@@ -33,15 +33,18 @@ import { createMuiTheme } from "@material-ui/core/styles";
 const arcBlue = "#0B72B9";
 const arcOrange = "#FFBA60";
 const arcGrey = "#868686";
+const quiroGreen = '#04bba6';
 
 export default createMuiTheme({
   palette: {
     common: {
       blue: arcBlue,
-      orange: arcOrange
+      orange: arcOrange,
+      green: quiroGreen
     },
     primary: {
-      main: arcBlue
+      main: arcBlue,
+      green: quiroGreen
     },
     secondary: {
       main: arcOrange
@@ -103,6 +106,15 @@ export default createMuiTheme({
       borderWidth: 2,
       textTransform: "none",
       color: arcBlue,
+      borderRadius: 50,
+      fontFamily: "Roboto",
+      fontWeight: "bold"
+    },
+    linkButton: {
+      borderColor: quiroGreen,
+      borderWidth: 2,
+      textTransform: "none",
+      color: quiroGreen,
       borderRadius: 50,
       fontFamily: "Roboto",
       fontWeight: "bold"

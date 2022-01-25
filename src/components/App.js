@@ -20,7 +20,8 @@ import Presoterapia from '../components/vistas/servicios/presoterapia';
 import Quiromasaje from '../components/vistas/servicios/quiromasaje';
 import Tatoo from '../components/vistas/servicios/tatoo';
 
-import LogoPrincipal from '../util/images/landing/logoprincipal.svg';
+import {landigServicios, contactoLanding, instalacionesLanding} from '../util/datos/datosLanding';
+
 
 function App() {
   return (
@@ -28,7 +29,11 @@ function App() {
       <BrowserRouter>  
         <Header datMenu={menuServicios} listaDrawer={listaDrawer}/>
         <Routes>
-          <Route exact path="/" element={<Inicio logo={LogoPrincipal}/>} />
+          <Route exact path="/" element={<Inicio  
+            datosServicios={landigServicios} 
+            datosContacto={contactoLanding} 
+            datosInstalaciones = {instalacionesLanding}
+          />} />
           <Route exact path="/servicios/serviciosGeneral" element={<ServiciosGeneral />} />
           <Route exact path="/servicios/bonos" element={<Bonos />} />
           <Route exact path="/servicios/deportivo" element={<Deportivo />} />
