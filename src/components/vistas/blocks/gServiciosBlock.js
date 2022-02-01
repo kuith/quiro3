@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
@@ -12,13 +13,6 @@ const useStyles = makeStyles(theme=>({
       marginLeft: 0
     }
   },
-  rightImages:{
-   marginTop: "2em",
-   marginRight: "10%"
-  },
-  leftText:{
-   marginLeft: "2%"
-  },
   linkButton:{
     ...theme.typography.linkButton,
     "&:hover": {
@@ -29,14 +23,10 @@ const useStyles = makeStyles(theme=>({
   espacing: {
     marginTop:"1em"
   },
-  servicesBlock: {
-    minWidth:"21.5em",
-    marginLeft: "1em",
-    marginRight: "2em"
-  }
+
 }));
 
-export default function Inicio({datos, blockAlign}) {
+export default function GServiciosBlock({datos, blockAlign}) {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSm = useMediaQuery(theme.breakpoints.down("sm"));
@@ -50,28 +40,47 @@ export default function Inicio({datos, blockAlign}) {
   }
 
   console.log(margen);
-
-  
+ 
 
   return(
     <Grid item>
         <Grid container justify= {matchesSm ? "center": alineacion} direction="row" className={classes.espacing}>
-          <Grid item style={{marginLeft: matchesSm ? 0 : "5em", textAlign: matchesSm ? "center": undefined}}>
+          <Grid item style={{marginLeft: matchesSm ? 0 : "7em", textAlign: matchesSm ? "center": undefined}}>
             <Typography  variant="h2">
               {datos.titulo}
             </Typography>
             <Typography  variant="subtitle1">
-            {datos.subtitulo1}
+              Desde: {datos.precio}
             </Typography>
-            <Button variant="outlined" className={classes.linkButton}>
+            <Typography  variant="subtitle1">
+              {datos.aclaracion}
+            </Typography>
+            <Typography  variant="h6">
+              {datos.texto}
+            </Typography>
+            
+            <Button 
+              component={Link} to ={datos.link}
+              variant="outlined" 
+              className={classes.linkButton}
+            >
               <span style={{marginRight: 10}}>Más información</span>
             </Button>
+           
           </Grid>
-          <Grid item style={{marginRight: matchesSm ? 0 : "5em"}}>
-            <img className={classes.icon} src={datos.img} alt="Logo principal"/>
+          <Grid item style={{marginRight: matchesSm ? 0 : "7em"}}>
+            <img className={classes.icon} src={datos.imagen} alt="Imagen"/>
           </Grid>
         </Grid>
       </Grid>
   )
 
 }
+
+/* imagen: {},
+  titulo: "Quiromasaje",
+  precio: "22",
+  aclaracion: "(Con bono de 10)",
+  texto: "Método de exploración (mediante la palpación) y de tratamiento manual, aplicado sobre la cubierta corporal.",
+  servicio: "quiromasaje",
+  link:"" */

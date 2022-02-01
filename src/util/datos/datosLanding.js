@@ -2,12 +2,12 @@ import imgServiciosLanding from  '../images/landing/logo.png';
 import imgMapsLanding from '../images/landing/maps.png';
 import imginstalacionesLanding from '../images/landing/instalaciones.png';
 
-const landigServicios = {
+const serviciosLanding = {
   img: imgServiciosLanding,
   titulo: "Fisioterapia y otros servicios",
   subtitulo1: "Descubra todos los servicios que le ofrecemos",
   subtitulo2:"",
-  link:""
+  link:"/servicios/serviciosGeneral"
 
 }
  
@@ -30,7 +30,7 @@ const instalacionesLanding = {
 }
 
 export {
-  landigServicios,
+  serviciosLanding,
   contactoLanding,
   instalacionesLanding
 }

@@ -6,8 +6,12 @@ import theme from './ui/Theme';
 
 import Header from './ui/containers/header';
 import Footer from './ui/containers/Footer';
-import Inicio from '../components/vistas/inicio';
-import ServiciosGeneral from '../components/vistas/serviciosGeneral';
+
+//import ServiciosGeneral from '../components/vistas/serviciosGeneral';
+
+import BlocksContariner from '../components/vistas/blocks/blocksContainer';
+import LandingBlocks from './vistas/blocks/landingBlocks';
+import GServiciosBlocks from './vistas/blocks/gServiciosBlocks';
 
 import {menuServicios} from '../util/datos/datos';
 import {listaDrawer} from '../util/datos/datos';
@@ -20,7 +24,9 @@ import Presoterapia from '../components/vistas/servicios/presoterapia';
 import Quiromasaje from '../components/vistas/servicios/quiromasaje';
 import Tatoo from '../components/vistas/servicios/tatoo';
 
-import {landigServicios, contactoLanding, instalacionesLanding} from '../util/datos/datosLanding';
+//import {landigServicios, contactoLanding, instalacionesLanding} from '../util/datos/datosLanding';
+import * as datosLanding from '../util/datos/datosLanding';
+import * as datosGeneralServicios from '../util/datos/datosGeneralServicios';
 
 
 function App() {
@@ -29,12 +35,8 @@ function App() {
       <BrowserRouter>  
         <Header datMenu={menuServicios} listaDrawer={listaDrawer}/>
         <Routes>
-          <Route exact path="/" element={<Inicio  
-            datosServicios={landigServicios} 
-            datosContacto={contactoLanding} 
-            datosInstalaciones = {instalacionesLanding}
-          />} />
-          <Route exact path="/servicios/serviciosGeneral" element={<ServiciosGeneral />} />
+          <Route exact path="/" element={<BlocksContariner blocks={<LandingBlocks datos={datosLanding}/>}/>} />
+          <Route exact path="/servicios/serviciosGeneral" element={<BlocksContariner blocks={<GServiciosBlocks datos={datosGeneralServicios}/>}/>} />
           <Route exact path="/servicios/bonos" element={<Bonos />} />
           <Route exact path="/servicios/deportivo" element={<Deportivo />} />
           <Route exact path="/servicios/dietetico" element={<Dietetico />} />
