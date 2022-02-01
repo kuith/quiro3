@@ -45,7 +45,7 @@ export default function GServiciosBlock({datos, blockAlign}) {
   return(
     <Grid item>
         <Grid container justify= {matchesSm ? "center": alineacion} direction="row" className={classes.espacing}>
-          <Grid item style={{marginLeft: matchesSm ? 0 : "7em", textAlign: matchesSm ? "center": undefined}}>
+          <Grid md={7} item style={{marginLeft: matchesSm ? 0 : "7em", textAlign: matchesSm ? "center": undefined}}>
             <Typography  variant="h2">
               {datos.titulo}
             </Typography>
