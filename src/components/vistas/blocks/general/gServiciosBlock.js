@@ -8,7 +8,7 @@ import { useMediaQuery } from '@material-ui/core';
 
 const useStyles = makeStyles(theme=>({
   icon: {
-    marginTop: "2em",
+    marginTop: "1em",
     [theme.breakpoints.down("xs")]: {
       marginLeft: 0
     }
@@ -18,10 +18,7 @@ const useStyles = makeStyles(theme=>({
     "&:hover": {
       backgroundColor: theme.palette.secondary.main
     },
-    marginTop:"1em"
-  },
-  espacing: {
-    marginTop:"1em"
+    marginTop:"1.5em"
   },
 
 }));
@@ -32,20 +29,16 @@ export default function GServiciosBlock({datos, blockAlign}) {
   const matchesSm = useMediaQuery(theme.breakpoints.down("sm"));
 
   let alineacion = "undefined";
-  let margen = "marginLeft";
 
   if( blockAlign === "right") {
     alineacion = "flex-end";
-    margen = "marginRight";
   }
-
-  console.log(margen);
  
 
   return(
     <Grid item>
-        <Grid container justify= {matchesSm ? "center": alineacion} direction="row" className={classes.espacing}>
-          <Grid md={7} item style={{marginLeft: matchesSm ? 0 : "7em", textAlign: matchesSm ? "center": undefined}}>
+        <Grid container justify= {matchesSm ? "center": alineacion} direction="row">
+          <Grid lg={7} item style={{marginLeft: matchesSm ? 0 : "7em", textAlign: matchesSm ? "center": undefined}}>
             <Typography  variant="h2">
               {datos.titulo}
             </Typography>
@@ -76,11 +69,3 @@ export default function GServiciosBlock({datos, blockAlign}) {
   )
 
 }
-
-/* imagen: {},
-  titulo: "Quiromasaje",
-  precio: "22",
-  aclaracion: "(Con bono de 10)",
-  texto: "Método de exploración (mediante la palpación) y de tratamiento manual, aplicado sobre la cubierta corporal.",
-  servicio: "quiromasaje",
-  link:"" */

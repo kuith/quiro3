@@ -17,7 +17,7 @@ const gQuiromasaje = {
   aclaracion: "(Con bono de 10)",
   texto: "Método de exploración (mediante la palpación) y de tratamiento manual, aplicado sobre la cubierta corporal.",
   servicio: "quiromasaje",
-  link:""
+  link:"/servicios/quiromasaje"
 }
 
 //osteopatia
@@ -28,7 +28,7 @@ const gOsteopatia = {
   aclaracion: "(Con bono de 10)",
   texto: "Tratamiento de dolencias basado en masajes y manipulación de articulaciones beneficiando tu salud.",
   servicio: "osteopatia",
-  link:""
+  link:"/servicios/osteopatia"
 }
 
 //presoterapia
@@ -39,7 +39,7 @@ const gPresoterapia = {
   aclaracion: "(Con bono de 10)",
   texto: "Utiliza la presión de aire, a modo de masaje, activando el sistema linfático mejorando la circulación.",
   servicio: "presoterapia",
-  link:""
+  link:"/servicios/presoterapia"
 }
 
 //asesoramiento deportivo
@@ -49,7 +49,7 @@ const gDeportivo = {
   precio: "20",
   texto: "Déjate asesorar por nuestros expertos, notarás un gran cambio",
   servicio: "deportivo",
-  link:""
+  link:"/servicios/deportivo"
 }
 
 //asesoramiento dietetico
@@ -59,7 +59,7 @@ const gDietetico = {
   precio: "20",
   texto: "Una buena alimentación te hara sentir bien y mejorar tu cuerpo.",
   servicio: "dietetico",
-  link:""
+  link:"/servicios/dietetico"
 }
 
 //bonos
@@ -69,7 +69,7 @@ const gBonos = {
   precio: "76",
   texto: "Ahorra o regala bienestar. Te lo agradecerán.",
   servicio: "bonos",
-  link:""
+  link:"/servicios/bonos"
 }
 
 //rejuvenecimeinto facial
@@ -79,7 +79,7 @@ const gRejuvenecimiento = {
   precio: "60",
   texto: "Limpieza de anomalías de la piel, envejecimiento o manchas solares.",
   servicio: "rejuvenecimiento",
-  link:""
+  link:"/servicios/facial"
 }
 
 //eliminacion tatuajes
@@ -89,7 +89,7 @@ const gTatoo = {
   precioCarrusel: "60 / 80",
   texto: "Tatuajes de todo tamaño y color.",
   servicio: "tatoo",
-  link:""
+  link:"/servicios/tatoo"
 }
 
 export {
