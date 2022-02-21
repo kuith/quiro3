@@ -32,6 +32,7 @@ const osteopatia = {
 }
 
 const presoterapia = {
+    titulo:"Presoterapia",
     imagen: ImgServiciosQuiromasaje,
     textoImagen:"La presoterapia estimula el sistema linfático, generando un drenaje linfático, con el objetivo de eliminar líquidos, grasas y toxinas acumuladas en el organismo beneficiando la circulacion.",
     subtextoImagen:"",

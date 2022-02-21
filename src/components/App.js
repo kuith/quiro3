@@ -14,6 +14,7 @@ import ServiciosContainer from './vistas/blocks/servicios/ServiciosContariner';
 //bloques servicios
 import QuiromasajeBlockDatos from './vistas/serviciosBlocks/quiromasajeBlock';
 import OsteopatiaBlockDatos from './vistas/serviciosBlocks/osteopatiaBlock';
+import PresoterapiaBlockDatos from './vistas/serviciosBlocks/presoterapiaBlock';
 
 import {menuServicios} from '../util/datos/datos';
 import {listaDrawer} from '../util/datos/datos';
@@ -62,7 +63,7 @@ function App() {
                 blocks={<ServiciosContainer 
                   datos={datosServiciosPresoterapia} 
                   blockServicio={ServiciosContainer} 
-                  blockDatos = {<QuiromasajeBlockDatos datos={datosServiciosPresoterapia}/>}
+                  blockDatos = {<PresoterapiaBlockDatos datos={datosServiciosPresoterapia}/>}
                 />}
               />}  
           />
