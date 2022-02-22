@@ -15,6 +15,11 @@ import ServiciosContainer from './vistas/blocks/servicios/ServiciosContariner';
 import QuiromasajeBlockDatos from './vistas/serviciosBlocks/quiromasajeBlock';
 import OsteopatiaBlockDatos from './vistas/serviciosBlocks/osteopatiaBlock';
 import PresoterapiaBlockDatos from './vistas/serviciosBlocks/presoterapiaBlock';
+import DeportivoBlockDatos from './vistas/serviciosBlocks/deportivoBlock';
+import DieteticoBlockDatos from './vistas/serviciosBlocks/dieteticoBlock';
+import BonosBlockDatos from './vistas/serviciosBlocks/bonosBlock';
+import FacialBlockDatos from './vistas/serviciosBlocks/facialBlock';
+import TatooBlockDatos from './vistas/serviciosBlocks/tatooBlock';
 
 import {menuServicios} from '../util/datos/datos';
 import {listaDrawer} from '../util/datos/datos';
@@ -29,8 +34,11 @@ import * as datosServicios from '../util/datos/datosServicios';
 const datosServiciosQuiromasaje = datosServicios.quiromasaje;
 const datosServiciosOsteopatia = datosServicios.osteopatia;
 const datosServiciosPresoterapia = datosServicios.presoterapia;
-
-
+const datosServiciosDeportivo = datosServicios.deportivo;
+const datosServiciosDietetico = datosServicios.dietetico;
+const datosServiciosBonos = datosServicios.bonos;
+const datosServiciosFacial = datosServicios.facial;
+const datosServiciosTatoo = datosServicios.tatoo;
 
 function App() {
   return (
@@ -64,6 +72,51 @@ function App() {
                   datos={datosServiciosPresoterapia} 
                   blockServicio={ServiciosContainer} 
                   blockDatos = {<PresoterapiaBlockDatos datos={datosServiciosPresoterapia}/>}
+                />}
+              />}  
+          />
+          <Route exact path="/servicios/deportivo" 
+            element={<BlocksContainer 
+                blocks={<ServiciosContainer 
+                  datos={datosServiciosDeportivo} 
+                  blockServicio={ServiciosContainer} 
+                  blockDatos = {<DeportivoBlockDatos datos={datosServiciosDeportivo}/>}
+                />}
+              />}  
+          />
+          <Route exact path="/servicios/dietetico" 
+            element={<BlocksContainer 
+                blocks={<ServiciosContainer 
+                  datos={datosServiciosDietetico} 
+                  blockServicio={ServiciosContainer} 
+                  blockDatos = {<DieteticoBlockDatos datos={datosServiciosDietetico}/>}
+                />}
+              />}  
+          />
+          <Route exact path="/servicios/bonos" 
+            element={<BlocksContainer 
+                blocks={<ServiciosContainer 
+                  datos={datosServiciosBonos} 
+                  blockServicio={ServiciosContainer} 
+                  blockDatos = {<BonosBlockDatos datos={datosServiciosBonos}/>}
+                />}
+              />}  
+          />
+          <Route exact path="/servicios/facial" 
+            element={<BlocksContainer 
+                blocks={<ServiciosContainer 
+                  datos={datosServiciosFacial} 
+                  blockServicio={ServiciosContainer} 
+                  blockDatos = {<FacialBlockDatos datos={datosServiciosFacial}/>}
+                />}
+              />}  
+          />
+          <Route exact path="/servicios/tatoo" 
+            element={<BlocksContainer 
+                blocks={<ServiciosContainer 
+                  datos={datosServiciosTatoo} 
+                  blockServicio={ServiciosContainer} 
+                  blockDatos = {<TatooBlockDatos datos={datosServiciosTatoo}/>}
                 />}
               />}  
           />

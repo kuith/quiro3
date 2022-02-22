@@ -1,11 +1,11 @@
 import ImgServiciosQuiromasaje from '../images/servicios/quiromasaje.png';
 import ImgServiciosOsteopatia from '../images/servicios/osteopatia.png';
-/* import ImgServiciosPresoterapia from '../../util/imagenes/servicios/presoterapia.png';
-import ImgServiciosDeportivo from '../../util/imagenes/servicios/deportivo.png';
-import ImgServiciosDietetico from '../../util/imagenes/servicios/dietetico.png';
-import ImgServiciosBonos from '../../util/imagenes/servicios/bonos.png';
-import ImgServiciosFacial from '../../util/imagenes/servicios/facial.png';
-import ImgServiciosTatoo from '../../util/imagenes/servicios/tatoo.png'; */ 
+import ImgServiciosPresoterapia from '../images/servicios/presoterapia.png';
+import ImgServiciosDeportivo from '../images/servicios/deportivo.png';
+import ImgServiciosDietetico from '../images/servicios/dietetico.png';
+import ImgServiciosBonos from '../images/servicios/bonos.png';
+import ImgServiciosFacial from '../images/servicios/facial.png';
+import ImgServiciosTatoo from '../images/servicios/tatoo.png';
 
 const quiromasaje = {
     titulo:"Quiromasaje",
@@ -33,32 +33,35 @@ const osteopatia = {
 
 const presoterapia = {
     titulo:"Presoterapia",
-    imagen: ImgServiciosQuiromasaje,
-    textoImagen:"La presoterapia estimula el sistema linfático, generando un drenaje linfático, con el objetivo de eliminar líquidos, grasas y toxinas acumuladas en el organismo beneficiando la circulacion.",
-    subtextoImagen:"",
+    imagen: ImgServiciosPresoterapia,
+    subtitulo1:"La presoterapia estimula el sistema linfático, generando un drenaje linfático, con el objetivo de eliminar líquidos, grasas y toxinas acumuladas en el organismo beneficiando la circulacion.",
+    subtextoImagen1:"",
     presoterapiaSesion: 30
 }
 
 const deportivo = {
-    imagen: ImgServiciosQuiromasaje,
-    textoImagen:"¿Quieres una tabla de ejercicios? ¿Alguien que te asesore sobre tus entrenamientos? Ven y cuentanos tus propósitos.",
-    subtextoImagen:"Rutinas para entrenamiento personalizadas.",
+    titulo: "Asesoramiento deportivo",
+    imagen: ImgServiciosDeportivo,
+    subtitulo1:"¿Quieres una tabla de ejercicios? ¿Alguien que te asesore sobre tus entrenamientos? Ven y cuentanos tus propósitos.",
+    subtextoImagen1:"Rutinas para entrenamiento personalizadas.",
     volumen: 20,
     tonificacion: 20
 }
 
 const dietetico = {
-    imagen: ImgServiciosQuiromasaje,
-    textoImagen:"¿Quieres ganar o perder peso? Ven a vernos no te arrepentiras.",
+    titulo: "Asesoramiento dietético",
+    imagen: ImgServiciosDietetico,
+    subtitulo1:"¿Quieres ganar o perder peso? Ven a vernos no te arrepentiras.",
     subtextoImagen:"",
     primera: 25,
     seguimiento: 20
 }
 
 const bonos = {
-    imagen: ImgServiciosQuiromasaje,
-    textoImagen:"Siempre biene bien ahorrarse un dinero o tambien como regalo...regala salud.",
-    subtextoImagen:"Bonos de seguimientos completos.",
+    titulo: "Título",
+    imagen: ImgServiciosBonos,
+    subtitulo1:"Siempre biene bien ahorrarse un dinero o tambien como regalo...regala salud.",
+    subtextoImagen1:"Bonos de seguimientos completos.",
     bonoMasajes3: 76,
     bonoMasajes6: 147,
     bonoMasajes10: 220,
@@ -67,15 +70,17 @@ const bonos = {
 }
 
 const facial = {
-    imagen: ImgServiciosQuiromasaje,
-    textoImagen: "Haz un regalo original para ocasiones especiales.",
+    titulo: "Rejuvenecimiento facial laser",
+    imagen: ImgServiciosFacial,
+    subtitulo1: "Haz un regalo original para ocasiones especiales.",
     subtextoImagen:"",
     facial: 60
 }
 
 const tatoo = {
-    imagen: ImgServiciosQuiromasaje,
-    textoImagen:"Si te has cansado de tu tatuaje, recuerda que se puede eliminar.",
+    titulo: "Sesión de eliminación de tatuajes",
+    imagen: ImgServiciosTatoo,
+    subtitulo1:"Si te has cansado de tu tatuaje, recuerda que se puede eliminar.",
     subtextoImagen:"",
     tatoo: "60 / 80"
 }
