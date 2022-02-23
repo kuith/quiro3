@@ -5,7 +5,8 @@ import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles(theme=>({
   precio: {
-    fontWeight:"bold"
+    fontWeight:"bold",
+    paddingLeft:"0.5em"
   },
   margenAbajo:{
     marginBottom:"1em"

@@ -60,7 +60,7 @@ const dietetico = {
 const bonos = {
     titulo: "Título",
     imagen: ImgServiciosBonos,
-    subtitulo1:"Siempre biene bien ahorrarse un dinero o tambien como regalo...regala salud.",
+    subtitulo1:"Siempre viene bien ahorrarse un dinero o tambien como regalo...regala salud.",
     subtextoImagen1:"Bonos de seguimientos completos.",
     bonoMasajes3: 76,
     bonoMasajes6: 147,
