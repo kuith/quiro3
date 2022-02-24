@@ -21,14 +21,17 @@ import BonosBlockDatos from './vistas/serviciosBlocks/bonosBlock';
 import FacialBlockDatos from './vistas/serviciosBlocks/facialBlock';
 import TatooBlockDatos from './vistas/serviciosBlocks/tatooBlock';
 
+//Contacto
+import Contacto from './vistas/blocks/contacto/contacto';
+
 import {menuServicios} from '../util/datos/datos';
 import {listaDrawer} from '../util/datos/datos';
 
 
-//import {landigServicios, contactoLanding, instalacionesLanding} from '../util/datos/datosLanding';
 import * as datosLanding from '../util/datos/datosLanding';
 import * as datosGeneralServicios from '../util/datos/datosGeneralServicios';
 import * as datosServicios from '../util/datos/datosServicios';
+import {contacto} from '../util/datos/datosContacto';
 
 //Variables datos
 const datosServiciosQuiromasaje = datosServicios.quiromasaje;
@@ -119,6 +122,9 @@ function App() {
                   blockDatos = {<TatooBlockDatos datos={datosServiciosTatoo}/>}
                 />}
               />}  
+          />
+          <Route exact path="/contacto" 
+            element={<Contacto datos= {contacto}/>}  
           />
        
 
