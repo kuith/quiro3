@@ -22,7 +22,12 @@ import FacialBlockDatos from './vistas/serviciosBlocks/facialBlock';
 import TatooBlockDatos from './vistas/serviciosBlocks/tatooBlock';
 
 //Contacto
-import Contacto from './vistas/blocks/contacto/contacto';
+import ContactoContainer from './vistas/blocks/contacto/contactoContainer';
+import MapaContacto from './vistas/blocks/contacto/mapaContacto';
+import DireccionContacto from './vistas/blocks/contacto/direccionContacto';
+import HorarioContacto from './vistas/blocks/contacto/horarioContacto';
+import CorreoContacto from './vistas/blocks/contacto/correoContacto';
+
 
 import {menuServicios} from '../util/datos/datos';
 import {listaDrawer} from '../util/datos/datos';
@@ -124,7 +129,13 @@ function App() {
               />}  
           />
           <Route exact path="/contacto" 
-            element={<Contacto datos= {contacto}/>}  
+            element={<ContactoContainer
+              datos= {contacto}
+              blockMapa={<MapaContacto/>}
+              blockDireccion={<DireccionContacto datos={contacto}/>}
+              blockHorario = {<HorarioContacto datos={contacto}/>}
+              blockCorreo = {<CorreoContacto datos = {contacto}/>}
+            />}  
           />
        
 
