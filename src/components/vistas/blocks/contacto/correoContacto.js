@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles} from "@material-ui/core/styles";
 import Grid from '@material-ui/core/Grid';
-import { Typography } from '@material-ui/core';
+import { TextField, Typography } from '@material-ui/core';
 import { useMediaQuery } from '@material-ui/core';
 import { useTheme } from "@material-ui/core/styles";
 import { Button } from '@material-ui/core';
-import PhoneOutlinedIcon from '@material-ui/icons/PhoneOutlined';
+import PhoneIcon from '@material-ui/icons/Phone';
+import EmailIcon from '@material-ui/icons/Email';
 
 const useStyles = makeStyles(theme=>({
   precio: {
@@ -23,6 +24,10 @@ const useStyles = makeStyles(theme=>({
       paddingRight: "1.5em",
     }
   },
+  icon:{
+    marginRight:"0.5em",
+    verticalAlign:"bottom"
+  }
 }));
 
 export default function CorreoContacto({datos}) {
@@ -30,19 +35,26 @@ export default function CorreoContacto({datos}) {
   const theme = useTheme();
   const matchesSm = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesMd = useMediaQuery(theme.breakpoints.down("md"));
+
+  const [nombre, setNombre] = useState("");
+  const [correo, setCorreo] = useState("");
+  const [telefono, setTelefono] = useState("");
+  const [mensaje, setMensaje] = useState("");
+
   return(
     <>
       <Grid item>
         <Typography variant="h3" style={{lineHeight:1}}>Escríbanos</Typography>
         <Typography 
           variant="body1"
-          style={{color:theme.palette.common.green}}
+          style={{color:theme.palette.common.green, marginBottom:"1em"}}
           >Le esperamos
         </Typography>
       </Grid>
+
       <Grid item container>
         <Grid item>
-          <img src={PhoneOutlinedIcon} alt="Teléfono"/>
+          <PhoneIcon className={classes.icon}/>
         </Grid>
         <Grid item>
           <Typography 
@@ -52,6 +64,40 @@ export default function CorreoContacto({datos}) {
             {datos.telefono}
           </Typography>
         </Grid>
+      </Grid>
+
+      <Grid item container>
+        <Grid item>
+          <EmailIcon className={classes.icon}/>
+        </Grid>
+        <Grid item>
+          <Typography 
+            variant='body1'
+            style={{color:theme.palette.common.green}}
+          >
+            {datos.correo}
+          </Typography>
+        </Grid>
+      </Grid>
+
+      <Grid item container>
+        <Grid item>
+          <TextField label="Nombre" id="nombre" value={nombre} onChange={(event)=>setNombre(event.target.value)}/>
+        </Grid>
+        <Grid item>
+          <TextField label="Correo electrónico" id="correo" value={correo} onChange={(event)=>setCorreo(event.target.value)}/>
+        </Grid>
+        <Grid item>
+          <TextField label="Teléfono" id="telefono" value={telefono} onChange={(event)=>setTelefono(event.target.value)}/>
+        </Grid>
+      </Grid>
+
+      <Grid item>
+        <TextField id="mensaje" onChange={(event)=>setMensaje(event.target.value)} multiline rows={10}/>
+      </Grid>
+
+      <Grid item>
+        <Button variant="contained">Enviar Mensaje</Button>
       </Grid>
     </>
 

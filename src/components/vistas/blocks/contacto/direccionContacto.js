@@ -32,12 +32,6 @@ export default function DireccionContacto({datos}) {
       <Typography variant="body1" className={classes.rowContainer}>
         {datos.ciudad}
       </Typography>
-      <Typography variant="body1" className={classes.rowContainer}>
-        Teléfono: <span className={classes.destacado}>{datos.telefono}</span>
-      </Typography>
-      <Typography variant="body1" className={classes.rowContainer}>
-        Correo: <span className={classes.destacado}>{datos.correo}</span>
-      </Typography>
     </Grid>
   )
 }
