@@ -33,21 +33,24 @@ import { createMuiTheme } from "@material-ui/core/styles";
 const arcBlue = "#0B72B9";
 const arcOrange = "#FFBA60";
 const arcGrey = "#868686";
-const quiroGreen = '#04bba6';
+const quiroGreen = '#26a69a';
+const darkGreen = '#00695c';
+//const quiroGreen = '#04bba6';
 
 export default createMuiTheme({
   palette: {
     common: {
       blue: arcBlue,
       orange: arcOrange,
-      green: quiroGreen
+      green: quiroGreen,
+      darkGreen: darkGreen
     },
     primary: {
-      main: arcBlue,
+      main: quiroGreen,
       green: quiroGreen
     },
     secondary: {
-      main: arcOrange
+      main: darkGreen
     }
   },
   typography: {
@@ -62,24 +65,24 @@ export default createMuiTheme({
       fontFamily: "Raleway",
       fontWeight: 700,
       fontSize: "2.5rem",
-      color: arcBlue,
+      color: quiroGreen,
       lineHeight: 1.5
     },
     h3: {
       fontFamily: "Pacifico",
       fontSize: "2.5rem",
-      color: arcBlue
+      color: quiroGreen
     },
     h4: {
       fontFamily: "Raleway",
       fontSize: "1.75rem",
-      color: arcBlue,
+      color: quiroGreen,
       fontWeight: 700
     },
     h6: {
       fontWeight: 500,
       fontFamily: "Raleway",
-      color: arcBlue
+      color: quiroGreen
     },
     subtitle1: {
       fontSize: "1.25rem",
@@ -101,15 +104,6 @@ export default createMuiTheme({
       fontWeight: 300,
       color: arcGrey
     },
-    learnButton: {
-      borderColor: arcBlue,
-      borderWidth: 2,
-      textTransform: "none",
-      color: arcBlue,
-      borderRadius: 50,
-      fontFamily: "Roboto",
-      fontWeight: "bold"
-    },
     linkButton: {
       borderColor: quiroGreen,
       borderWidth: 2,
@@ -123,21 +117,21 @@ export default createMuiTheme({
   overrides: {
     MuiInputLabel: {
       root: {
-        color: arcBlue,
+        color: quiroGreen,
         fontSize: "1rem"
       }
     },
     MuiInput: {
       root: {
-        color: arcGrey,
+        color: darkGreen,
         fontWeight: 300
       },
       underline: {
         "&:before": {
-          borderBottom: `2px solid ${arcBlue}`
+          borderBottom: `2px solid ${quiroGreen}`
         },
         "&:hover:not($disabled):not($focused):not($error):before": {
-          borderBottom: `2px solid ${arcBlue}`
+          borderBottom: `2px solid ${quiroGreen}`
         }
       }
     }

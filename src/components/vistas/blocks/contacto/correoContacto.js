@@ -27,6 +27,21 @@ const useStyles = makeStyles(theme=>({
   icon:{
     marginRight:"0.5em",
     verticalAlign:"bottom"
+  },
+  mensaje: {
+    border: `2px solid ${theme.palette.common.green}`,
+    marginTop: "4em",
+    borderRadius:5
+  },
+  botonEnvio: {
+    borderRadius: 30,
+    height: 45,
+    fontSize: "1rem",
+    backgroundColor: theme.palette.common.darkGreen,
+    color: "white",
+    "&:hover": {
+      backgroundColor:theme.palette.secondary.light
+    }
   }
 }));
 
@@ -80,24 +95,51 @@ export default function CorreoContacto({datos}) {
         </Grid>
       </Grid>
 
-      <Grid item container>
+      <Grid item container style={{maxWidth:"20em"}}>
         <Grid item>
-          <TextField label="Nombre" id="nombre" value={nombre} onChange={(event)=>setNombre(event.target.value)}/>
+          <TextField
+            label="Nombre" 
+            id="nombre"
+            value={nombre} 
+            onChange={(event) => setNombre(event.target.value)} 
+          />
         </Grid>
         <Grid item>
-          <TextField label="Correo electrónico" id="correo" value={correo} onChange={(event)=>setCorreo(event.target.value)}/>
+          <TextField
+            label="Correo electrónico"
+            id="correo"
+            value={correo}
+            onChange={(event) => setCorreo(event.target.value)}
+          />
         </Grid>
         <Grid item>
-          <TextField label="Teléfono" id="telefono" value={telefono} onChange={(event)=>setTelefono(event.target.value)}/>
+          <TextField
+            label="Teléfono"
+            id="telefono"
+            value={telefono}
+            onChange={(event) => setTelefono(event.target.value)}
+          />
         </Grid>
       </Grid>
 
-      <Grid item>
-        <TextField id="mensaje" onChange={(event)=>setMensaje(event.target.value)} multiline rows={10}/>
+      <Grid item style={{maxWidth:"20em"}}>
+        <TextField
+          InputProps={{disableUnderline: true}}
+          id="mensaje"
+          className={classes.mensaje}
+          onChange={(event) => setMensaje(event.target.value)}
+          multiline
+          rows={10}
+        />
       </Grid>
 
       <Grid item>
-        <Button variant="contained">Enviar Mensaje</Button>
+        <Button
+          variant="contained"
+          className={classes.botonEnvio}
+        >
+          Enviar Mensaje
+        </Button>
       </Grid>
     </>
 
