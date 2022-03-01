@@ -42,18 +42,14 @@ export default function ContactoContainer({datos, blockMapa, blockDireccion, blo
       <Grid item>
         <Grid item container alignItems="center" direction ={matchesMd ? "column": "row"} className={classes.rowContainer}>
           {blockMapa}
-          <Grid item direction="column" lg>
-            {blockDireccion}
-          </Grid>
+          {blockDireccion}
         </Grid>
       </Grid>
 
       <Grid item>
-        <Grid item container direction='row'  className={classes.mainContainer}  lg>
-          <Grid item lg>
+        <Grid item container direction='row' justify='center' className={classes.mainContainer}  lg>
             {blockHorario}
-          </Grid> 
-          <Grid item container direction='column' justify='center'  lg>
+          <Grid item container direction='column' alignItems='center'  justify='center'  lg>
             {blockCorreo}
           </Grid>
         </Grid>

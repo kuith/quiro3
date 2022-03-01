@@ -26,12 +26,16 @@ export default function DireccionContacto({datos}) {
   const classes = useStyles();
   return(
     <Grid item>
-       <Typography variant="body1" className={classes.rowContainer}>
-        {datos.calle}
-      </Typography>
-      <Typography variant="body1" className={classes.rowContainer}>
-        {datos.ciudad}
-      </Typography>
+      <Grid container direction='column'  alignItems='center'>
+        <Grid item>
+          <Typography variant="body1" className={classes.rowContainer}>
+            {datos.calle}
+          </Typography>
+          <Typography variant="body1" className={classes.rowContainer}>
+            {datos.ciudad}
+          </Typography>
+        </Grid>
+      </Grid>
     </Grid>
   )
 }

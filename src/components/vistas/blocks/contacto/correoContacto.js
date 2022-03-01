@@ -58,89 +58,93 @@ export default function CorreoContacto({datos}) {
 
   return(
     <>
-      <Grid item>
-        <Typography variant="h3" style={{lineHeight:1}}>Escríbanos</Typography>
-        <Typography 
-          variant="body1"
-          style={{color:theme.palette.common.green, marginBottom:"1em"}}
-          >Le esperamos
-        </Typography>
-      </Grid>
-
-      <Grid item container>
+    <Grid item>
+      <Grid container direction='column'>
         <Grid item>
-          <PhoneIcon className={classes.icon}/>
-        </Grid>
-        <Grid item>
+          <Typography variant="h3" style={{lineHeight:1}}>Escríbanos</Typography>
           <Typography 
-            variant='body1'
-            style={{color:theme.palette.common.green}}
-          >
-            {datos.telefono}
+            variant="body1"
+            style={{color:theme.palette.common.green, marginBottom:"1em"}}
+            >Le esperamos
           </Typography>
         </Grid>
-      </Grid>
 
-      <Grid item container>
-        <Grid item>
-          <EmailIcon className={classes.icon}/>
+        <Grid item container>
+          <Grid item>
+            <PhoneIcon className={classes.icon}/>
+          </Grid>
+          <Grid item>
+            <Typography 
+              variant='body1'
+              style={{color:theme.palette.common.green}}
+            >
+              {datos.telefono}
+            </Typography>
+          </Grid>
         </Grid>
-        <Grid item>
-          <Typography 
-            variant='body1'
-            style={{color:theme.palette.common.green}}
+
+        <Grid item container style={{marginBottom:"1.5em"}}>
+          <Grid item>
+            <EmailIcon className={classes.icon}/>
+          </Grid>
+          <Grid item>
+            <Typography 
+              variant='body1'
+              style={{color:theme.palette.common.green}}
+            >
+              {datos.correo}
+            </Typography>
+          </Grid>
+        </Grid>
+
+        <Grid item container direction='column' alignContent='center' style={{maxWidth:"25em"}}>
+          <Grid item>
+            <TextField
+              label="Nombre" 
+              id="nombre"
+              value={nombre} 
+              onChange={(event) => setNombre(event.target.value)} 
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              label="Correo electrónico"
+              id="correo"
+              value={correo}
+              onChange={(event) => setCorreo(event.target.value)}
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              label="Teléfono"
+              id="telefono"
+              value={telefono}
+              onChange={(event) => setTelefono(event.target.value)}
+            />
+          </Grid>
+        
+          <Grid item style={{maxWidth:"25em"}}>
+            <TextField
+              InputProps={{disableUnderline: true}}
+              id="mensaje"
+              className={classes.mensaje}
+              onChange={(event) => setMensaje(event.target.value)}
+              multiline
+              rows={10}
+            />
+          </Grid>
+        </Grid>
+
+        <Grid item container justify='center' style={{marginTop:"1.5em"}}>
+          <Button
+            variant="contained"
+            className={classes.botonEnvio}
           >
-            {datos.correo}
-          </Typography>
+            Enviar Mensaje
+          </Button>
         </Grid>
       </Grid>
-
-      <Grid item container style={{maxWidth:"20em"}}>
-        <Grid item>
-          <TextField
-            label="Nombre" 
-            id="nombre"
-            value={nombre} 
-            onChange={(event) => setNombre(event.target.value)} 
-          />
-        </Grid>
-        <Grid item>
-          <TextField
-            label="Correo electrónico"
-            id="correo"
-            value={correo}
-            onChange={(event) => setCorreo(event.target.value)}
-          />
-        </Grid>
-        <Grid item>
-          <TextField
-            label="Teléfono"
-            id="telefono"
-            value={telefono}
-            onChange={(event) => setTelefono(event.target.value)}
-          />
-        </Grid>
-      </Grid>
-
-      <Grid item style={{maxWidth:"20em"}}>
-        <TextField
-          InputProps={{disableUnderline: true}}
-          id="mensaje"
-          className={classes.mensaje}
-          onChange={(event) => setMensaje(event.target.value)}
-          multiline
-          rows={10}
-        />
-      </Grid>
-
-      <Grid item>
-        <Button
-          variant="contained"
-          className={classes.botonEnvio}
-        >
-          Enviar Mensaje
-        </Button>
-      </Grid>
+    </Grid>
     </>
 
   );
