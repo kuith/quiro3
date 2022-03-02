@@ -30,32 +30,53 @@ export default function ContactoContainer({datos, blockMapa, blockDireccion, blo
   const matchesSm = useMediaQuery(theme.breakpoints.down("sm"));
   console.log(matchesMd);
 
-  return(
-    <>
-    <Grid container direction="column" className={classes.mainContainer}>
-
-      <Grid item className={classes.rowContainer}>
+  const titulo = (
+    <Grid item className={classes.rowContainer}>
         <Typography variant="h2" className={classes.margenAbajo}>
           {datos.titulo}
         </Typography>
       </Grid>
-      <Grid item>
-        <Grid item container alignItems="center" direction ={matchesMd ? "column": "row"} className={classes.rowContainer}>
-          {blockMapa}
-          {blockDireccion}
-        </Grid>
-      </Grid>
+  );
 
-      <Grid item>
-        <Grid item container direction='row' justify='center' className={classes.mainContainer}  lg>
-            {blockHorario}
-          <Grid item container direction='column' alignItems='center'  justify='center'  lg>
-            {blockCorreo}
-          </Grid>
-        </Grid>
+  const mapa = (
+    <Grid item>
+      <Grid item container alignItems="center" direction ={matchesMd ? "column": "row"} className={classes.rowContainer}>
+        {blockMapa}
       </Grid>
+    </Grid>
+  )
+
+  const tituloMapa = (
+    <Grid item>
+      {titulo}
+      {mapa}
+    </Grid>
+  )
+
+  const horarioCorreo = (
+    <Grid item>
+      <Grid container direction='row' justify='center' className={classes.mainContainer}  lg>
+          {blockHorario}
+
+          {blockCorreo}
+
+      </Grid>
+    </Grid>
+  )
+
+  const total = (
+    <Grid container direction="column" className={classes.mainContainer}>
+     
+      {tituloMapa}
+
+      {horarioCorreo}
 
     </Grid>
-      </>
+  )
+
+  return(
+    <>
+    {total}
+    </>
   );
 }

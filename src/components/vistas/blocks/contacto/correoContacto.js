@@ -56,10 +56,10 @@ export default function CorreoContacto({datos}) {
   const [telefono, setTelefono] = useState("");
   const [mensaje, setMensaje] = useState("");
 
+
   return(
     <>
-    <Grid item>
-      <Grid container direction='column'>
+      <Grid item container direction='column' alignItems='center' lg> 
         <Grid item>
           <Typography variant="h3" style={{lineHeight:1}}>Escríbanos</Typography>
           <Typography 
@@ -69,7 +69,7 @@ export default function CorreoContacto({datos}) {
           </Typography>
         </Grid>
 
-        <Grid item container>
+        <Grid item container direction='row'>
           <Grid item>
             <PhoneIcon className={classes.icon}/>
           </Grid>
@@ -97,7 +97,7 @@ export default function CorreoContacto({datos}) {
           </Grid>
         </Grid>
 
-        <Grid item container direction='column' alignContent='center' style={{maxWidth:"25em"}}>
+        <Grid item container direction='column' style={{maxWidth:"25em"}}>
           <Grid item>
             <TextField
               label="Nombre" 
@@ -148,7 +148,6 @@ export default function CorreoContacto({datos}) {
           </Button>
         </Grid>
       </Grid>
-    </Grid>
     </>
 
   );

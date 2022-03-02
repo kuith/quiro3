@@ -24,7 +24,7 @@ import TatooBlockDatos from './vistas/serviciosBlocks/tatooBlock';
 //Contacto
 import ContactoContainer from './vistas/blocks/contacto/contactoContainer';
 import MapaContacto from './vistas/blocks/contacto/mapaContacto';
-import DireccionContacto from './vistas/blocks/contacto/direccionContacto';
+//import DireccionContacto from './vistas/blocks/contacto/direccionContacto';
 import HorarioContacto from './vistas/blocks/contacto/horarioContacto';
 import CorreoContacto from './vistas/blocks/contacto/correoContacto';
 
@@ -131,8 +131,8 @@ function App() {
           <Route exact path="/contacto" 
             element={<ContactoContainer
               datos= {contacto}
-              blockMapa={<MapaContacto/>}
-              blockDireccion={<DireccionContacto datos={contacto}/>}
+              blockMapa={<MapaContacto datos={contacto}/>}
+              //blockDireccion={<DireccionContacto datos={contacto}/>}
               blockHorario = {<HorarioContacto datos={contacto}/>}
               blockCorreo = {<CorreoContacto datos = {contacto}/>}
             />}  
