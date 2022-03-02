@@ -102,6 +102,7 @@ export default function CorreoContacto({datos}) {
             <TextField
               label="Nombre" 
               id="nombre"
+              fullWidth
               value={nombre} 
               onChange={(event) => setNombre(event.target.value)} 
             />
@@ -110,6 +111,7 @@ export default function CorreoContacto({datos}) {
             <TextField
               label="Correo electrónico"
               id="correo"
+              fullWidth
               value={correo}
               onChange={(event) => setCorreo(event.target.value)}
             />
@@ -118,6 +120,7 @@ export default function CorreoContacto({datos}) {
             <TextField
               label="Teléfono"
               id="telefono"
+              fullWidth
               value={telefono}
               onChange={(event) => setTelefono(event.target.value)}
             />
@@ -130,6 +133,7 @@ export default function CorreoContacto({datos}) {
               className={classes.mensaje}
               onChange={(event) => setMensaje(event.target.value)}
               multiline
+              fullWidth
               rows={10}
             />
           </Grid>
