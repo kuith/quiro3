@@ -7,7 +7,10 @@ import { useMediaQuery } from '@material-ui/core';
 
 const useStyles = makeStyles(theme=>({
   mainContainer:{
-    marginTop:"2em"
+    marginTop:"3em"
+  },
+  correoContainer:{
+    marginTop:"4em"
   },
   rowContainer: {
     paddingLeft: "5em",
@@ -23,7 +26,7 @@ const useStyles = makeStyles(theme=>({
 
 }));
 
-export default function ContactoContainer({datos, blockMapa, blockDireccion, blockHorario, blockCorreo}) {
+export default function ContactoContainer({datos, blockMapa, blockHorario, blockCorreo}) {
   const classes = useStyles();
   const theme = useTheme();
   const matchesMd = useMediaQuery(theme.breakpoints.down("md"));
@@ -40,7 +43,7 @@ export default function ContactoContainer({datos, blockMapa, blockDireccion, blo
 
   const mapa = (
     <Grid item>
-      <Grid item container alignItems="center" direction ={matchesMd ? "column": "row"} className={classes.rowContainer}>
+      <Grid item container alignItems="center" className={classes.rowContainer}>
         {blockMapa}
       </Grid>
     </Grid>
@@ -55,7 +58,7 @@ export default function ContactoContainer({datos, blockMapa, blockDireccion, blo
 
   const horarioCorreo = (
     <Grid item>
-      <Grid container direction='row' justify='center' className={classes.mainContainer}  lg>
+      <Grid container direction='row' justify='center'  className={classes.correoContainer}  lg>
           {blockHorario}
 
           {blockCorreo}

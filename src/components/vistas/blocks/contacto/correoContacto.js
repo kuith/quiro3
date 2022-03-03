@@ -59,7 +59,12 @@ export default function CorreoContacto({datos}) {
 
   return(
     <>
-      <Grid item container direction='column' alignItems='center' lg> 
+      <Grid item container 
+        direction='column' 
+        alignItems='center' 
+        lg 
+        style={{marginTop: matchesMd ? "3em" : 0,}}
+      > 
         <Grid item>
           <Typography variant="h3" style={{lineHeight:1}}>Escríbanos</Typography>
           <Typography 
@@ -68,35 +73,35 @@ export default function CorreoContacto({datos}) {
             >Le esperamos
           </Typography>
         </Grid>
-
-        <Grid item container direction='row'>
-          <Grid item>
-            <PhoneIcon className={classes.icon}/>
+        <Grid item>
+          <Grid item container direction='row'>
+            <Grid item>
+              <PhoneIcon className={classes.icon}/>
+            </Grid>
+            <Grid item>
+              <Typography 
+                variant='body1'
+                style={{color:theme.palette.common.green}}
+              >
+                {datos.telefono}
+              </Typography>
+            </Grid>
           </Grid>
-          <Grid item>
-            <Typography 
-              variant='body1'
-              style={{color:theme.palette.common.green}}
-            >
-              {datos.telefono}
-            </Typography>
+
+          <Grid item container style={{marginBottom:"1.5em"}}>
+            <Grid item>
+              <EmailIcon className={classes.icon}/>
+            </Grid>
+            <Grid item>
+              <Typography 
+                variant='body1'
+                style={{color:theme.palette.common.green}}
+              >
+                {datos.correo}
+              </Typography>
+            </Grid>
           </Grid>
         </Grid>
-
-        <Grid item container style={{marginBottom:"1.5em"}}>
-          <Grid item>
-            <EmailIcon className={classes.icon}/>
-          </Grid>
-          <Grid item>
-            <Typography 
-              variant='body1'
-              style={{color:theme.palette.common.green}}
-            >
-              {datos.correo}
-            </Typography>
-          </Grid>
-        </Grid>
-
         <Grid item container direction='column' style={{maxWidth:"25em"}}>
           <Grid item>
             <TextField
@@ -139,7 +144,7 @@ export default function CorreoContacto({datos}) {
           </Grid>
         </Grid>
 
-        <Grid item container justify='center' style={{marginTop:"1.5em"}}>
+        <Grid item container justify='center' style={{marginTop:"1.5em", marginBottom:"1.5em"}}>
           <Button
             variant="contained"
             className={classes.botonEnvio}

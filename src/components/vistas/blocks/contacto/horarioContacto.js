@@ -25,8 +25,9 @@ const useStyles = makeStyles(theme=>({
 export default function HorarioContacto({datos}) {
   const classes = useStyles();
   return(
+    
     <Grid item>
-      <Typography variant="h3" className={classes.rowContainer}>
+      <Typography variant="h3"  className={classes.rowContainer} style={{textAlign:"center"}}>
         {datos.horario}
       </Typography>
       <Typography variant="body1" className={classes.rowContainer}>

@@ -25,8 +25,8 @@ const useStyles = makeStyles(theme=>({
 export default function DireccionContacto({datos}) {
   const classes = useStyles();
   return(
-    <Grid item>
-      <Grid container direction='column'  alignItems='center'>
+    
+      <Grid container direction='column'>
         <Grid item>
           <Typography variant="body1" className={classes.rowContainer}>
             {datos.calle}
@@ -35,7 +35,7 @@ export default function DireccionContacto({datos}) {
             {datos.ciudad}
           </Typography>
         </Grid>
-      </Grid>
+      
     </Grid>
   )
 }

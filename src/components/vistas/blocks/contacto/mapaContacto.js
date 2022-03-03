@@ -29,18 +29,26 @@ export default function MapaContacto({datos}) {
   const theme = useTheme();
   const matchesSm = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesMd = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesXs = useMediaQuery(theme.breakpoints.down("xs"));
   
-  
+  console.log("SM:" + matchesSm);
+  console.log("MD:" + matchesMd);
+  console.log("XS:" + matchesXs);
+
+  const withMap = (w) => {
+    if (w) = 
+  }
   return(
-    <Grid item container>
-      <Grid item lg>
+    <Grid item container direction='column'>
+      <Grid item >
         <iframe 
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3035.63930035975!2d-3.47840488303857!3d40.46111970287865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4236e02524ee87%3A0x10ebd722b108ade2!2sRonda+de+Saliente%2C+1%2C+28850+Torrej%C3%B3n+de+Ardoz%2C+Madrid!5e0!3m2!1ses!2ses!4v1527496457961" 
           style={{
-            height: "100%",
-            width: "100%",
-            marginBottom: matchesMd ? "3em" : 0,
-            marginLeft: matchesMd ? "1.5em" : 0,
+            height: "auto",
+            width: matchesSm ? "550px" : "100%",
+            marginBottom: matchesSm ? "3em" : 0,
+            marginLeft: matchesSm ? "1.5em" : "2em",
+            marginRight: matchesSm ? "1.5em" : "2em",
             border: 0
           }} 
           allowfullscreen 
@@ -51,8 +59,7 @@ export default function MapaContacto({datos}) {
         marginTop: matchesMd ? "2.5em" : 0,
         marginLeft: matchesMd ? "2.5em" : 0,
       }}>
-        <Grid item container direction='column'  alignItems='center'>
-          <Grid item>
+        
             <Typography variant="body1" className={classes.rowContainer}>
               {datos.calle}
             </Typography>
@@ -60,8 +67,7 @@ export default function MapaContacto({datos}) {
               {datos.ciudad}
             </Typography>
           </Grid>
-        </Grid>
-      </Grid>
+        
     </Grid>
   )
 }
