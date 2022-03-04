@@ -7,10 +7,6 @@ import { useTheme } from "@material-ui/core/styles";
 
 
 const useStyles = makeStyles(theme=>({
-  precio: {
-    fontWeight:"bold",
-    paddingLeft:"0.5em"
-  },
   margenAbajo:{
     marginBottom:"1em"
   },
@@ -35,44 +31,30 @@ export default function MapaContacto({datos}) {
   console.log("MD:" + matchesMd);
   console.log("XS:" + matchesXs);
 
-  const withMap = (w) => {
-    if (w) = 
-  }
   return(
-    <Grid item container direction='column'>
-      <Grid item >
+    <Grid item container direction='column'  xs={11} >
+      <Grid item>
         <iframe 
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3035.63930035975!2d-3.47840488303857!3d40.46111970287865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4236e02524ee87%3A0x10ebd722b108ade2!2sRonda+de+Saliente%2C+1%2C+28850+Torrej%C3%B3n+de+Ardoz%2C+Madrid!5e0!3m2!1ses!2ses!4v1527496457961" 
           style={{
-            height: "auto",
-            width: matchesSm ? "550px" : "100%",
-            marginBottom: matchesSm ? "3em" : 0,
+            width: "100%",
             marginLeft: matchesSm ? "1.5em" : "2em",
-            marginRight: matchesSm ? "1.5em" : "2em",
+            marginRight: matchesXs ? "1.5em" : "2em",
             border: 0
           }} 
           allowfullscreen 
           title="Situación">
         </iframe>
       </Grid>
-      <Grid item style={{
-        marginTop: matchesMd ? "2.5em" : 0,
-        marginLeft: matchesMd ? "2.5em" : 0,
-      }}>
-        
-            <Typography variant="body1" className={classes.rowContainer}>
-              {datos.calle}
-            </Typography>
-            <Typography variant="body1" className={classes.rowContainer}>
-              {datos.ciudad}
-            </Typography>
-          </Grid>
-        
+      
+      <Grid item align="center">
+        <Typography variant="h6">
+          {datos.calle}
+        </Typography>
+        <Typography variant="h6">
+          {datos.ciudad}
+        </Typography>
+      </Grid>
     </Grid>
   )
 }
-
-/* width="600" 
-          height="450" 
-          frameborder="0" 
-          style={{border:0}} */

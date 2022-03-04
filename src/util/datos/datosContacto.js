@@ -1,5 +1,5 @@
 const contacto = {
-  titulo:"CONTACTO",
+  titulo:"Contacto",
   calle:"Ronda del Saliente, nº 1",
   ciudad:"Torrejon de Ardoz (Madrid).",
   telefono:"91 011 12 60 - 653 82 29 45",

@@ -79,6 +79,12 @@ export default createMuiTheme({
       color: quiroGreen,
       fontWeight: 700
     },
+    h5: {
+      fontFamily: "Raleway",
+      fontSize: "1.75rem",
+      color: quiroGreen,
+      fontWeight: 600
+    },
     h6: {
       fontWeight: 500,
       fontFamily: "Raleway",
