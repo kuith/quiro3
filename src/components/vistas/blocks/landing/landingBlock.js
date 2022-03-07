@@ -38,10 +38,7 @@ export default function LandingBlock({datos, blockAlign}) {
     alineacion = "flex-end";
     margen = "marginRight";
   }
-
-  console.log(margen);
  
-
   return(
     <Grid item>
         <Grid container justify= {matchesSm ? "center": alineacion} direction="row" className={classes.espacing}>

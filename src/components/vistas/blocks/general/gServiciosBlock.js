@@ -27,45 +27,53 @@ export default function GServiciosBlock({datos, blockAlign}) {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSm = useMediaQuery(theme.breakpoints.down("sm"));
+  const alineacion = blockAlign;
 
-  let alineacion = "undefined";
+  console.log("alineacion: " + alineacion);
 
-  if( blockAlign === "right") {
-    alineacion = "flex-end";
+  const imagen = (
+    <Grid item style={{marginRight: matchesSm ? 0 : "7em"}}>
+      <img className={classes.icon} src={datos.imagen} alt="Imagen"/>
+    </Grid>
+  )
+
+  const texto = (  
+    <Grid lg={7} item style={{marginLeft: matchesSm ? 0 : "7em", textAlign: matchesSm ? "center": undefined}}>
+      <Typography  variant="h2">
+        {datos.titulo}
+      </Typography>
+      <Typography  variant="subtitle1">
+        Desde: {datos.precio}
+      </Typography>
+      <Typography  variant="subtitle1">
+        {datos.aclaracion}
+      </Typography>
+      <Typography  variant="h6">
+        {datos.texto}
+      </Typography>
+      
+      <Button 
+        component={Link} to ={datos.link}
+        variant="outlined" 
+        className={classes.linkButton}
+      >
+        <span style={{marginRight: 10}}>Más información</span>
+      </Button>
+    </Grid>
+  )
+
+  function  total (){
+    
+    return <div>pipo</div>
+
   }
- 
 
   return(
     <Grid item>
-        <Grid container justify= {matchesSm ? "center": alineacion} direction="row">
-          <Grid lg={7} item style={{marginLeft: matchesSm ? 0 : "7em", textAlign: matchesSm ? "center": undefined}}>
-            <Typography  variant="h2">
-              {datos.titulo}
-            </Typography>
-            <Typography  variant="subtitle1">
-              Desde: {datos.precio}
-            </Typography>
-            <Typography  variant="subtitle1">
-              {datos.aclaracion}
-            </Typography>
-            <Typography  variant="h6">
-              {datos.texto}
-            </Typography>
-            
-            <Button 
-              component={Link} to ={datos.link}
-              variant="outlined" 
-              className={classes.linkButton}
-            >
-              <span style={{marginRight: 10}}>Más información</span>
-            </Button>
-           
-          </Grid>
-          <Grid item style={{marginRight: matchesSm ? 0 : "7em"}}>
-            <img className={classes.icon} src={datos.imagen} alt="Imagen"/>
-          </Grid>
-        </Grid>
+      <Grid container justify= "center" direction="row">
+        {total}
       </Grid>
+    </Grid>
   )
 
 }
