@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { Typography } from '@material-ui/core';
 import { useMediaQuery } from '@material-ui/core';
+import Hidden from '@material-ui/core/Hidden';
 
 const useStyles = makeStyles(theme=>({
   icon: {
@@ -31,13 +32,11 @@ export default function GServiciosBlock({datos, left}) {
   
 
   const imagen = (
-    <Grid item style={{marginRight: matchesSm ? 0 : "7em"}}>
-      <img className={classes.icon} src={datos.imagen} alt="Imagen"/>
-    </Grid>
-  )
+    <img src={datos.imagen} alt="Imagen" style={{ width: "100%"}}/>
+  );
 
   const texto = (  
-   <Grid lg={6} item style={{marginLeft: matchesSm ? 0 : "7em", textAlign: matchesSm ? "center": undefined}}>
+   <>
       <Typography  variant="h2">
         {datos.titulo}
       </Typography>
@@ -58,43 +57,37 @@ export default function GServiciosBlock({datos, left}) {
       >
         <span style={{marginRight: 10}}>Más información</span>
       </Button>
-    </Grid>
-  )
-
-  console.log("Me llega por parametro la alineacion: " + alineacion);
-  
-   
-  const textoIz = (
-    <>
-      { texto },
-      {imagen}
-    </>
+      </>
   );
 
-  const textoDer = (
-    <>
-      { imagen },
-      {texto}
-    </>
-  );
-
-  function colocar() {
-    console.log("Dentro alineacion: " + alineacion);
-    if (alineacion === "left") {
-      return {textoIz}
-    } else {
-      return {textoDer}
-    }
-  }
-  // {isLoggedIn ? <button>Logout</button> : <button>Login</button>}
   return(
    
-    <Grid container justify="center" direction="row">
+    <Grid  container justify="center" direction="row">
       
-      {alineacion  ? {textoIz}: {textoDer}}
-        
+       {alineacion  ? 
+          <>
+          <Grid item xs={5} style={{marginLeft: matchesSm ? 0 : "3em", textAlign: matchesSm ? "center": undefined}}>
+            { texto }
+          </Grid>
+          <Hidden smDown>
+            <Grid  item style={{marginRight: matchesSm ? 0 : "7em", marginLeft:"4em", marginBottom:"3em"}}>
+              {imagen}
+            </Grid>
+          </Hidden>
+        </>
+       : 
+        <>
+          <Hidden smDown>
+            <Grid  item style={{marginRight: matchesSm ? 0 : "7em", marginBottom:"3em"}}>
+              {imagen}
+            </Grid>
+          </Hidden>
+          <Grid item xs={5} style={{marginLeft: matchesSm ? 0 : "7em", textAlign: matchesSm ? "center": undefined}}>
+            { texto }
+          </Grid>
+        </>
+      } 
     </Grid>
-    
   )
 
 }
