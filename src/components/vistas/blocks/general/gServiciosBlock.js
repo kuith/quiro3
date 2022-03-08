@@ -23,13 +23,12 @@ const useStyles = makeStyles(theme=>({
 
 }));
 
-export default function GServiciosBlock({datos, blockAlign}) {
+export default function GServiciosBlock({datos, left}) {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSm = useMediaQuery(theme.breakpoints.down("sm"));
-  const alineacion = blockAlign;
-
-  console.log("alineacion: " + alineacion);
+  const alineacion = left;
+  
 
   const imagen = (
     <Grid item style={{marginRight: matchesSm ? 0 : "7em"}}>
@@ -38,7 +37,7 @@ export default function GServiciosBlock({datos, blockAlign}) {
   )
 
   const texto = (  
-    <Grid lg={7} item style={{marginLeft: matchesSm ? 0 : "7em", textAlign: matchesSm ? "center": undefined}}>
+   <Grid lg={6} item style={{marginLeft: matchesSm ? 0 : "7em", textAlign: matchesSm ? "center": undefined}}>
       <Typography  variant="h2">
         {datos.titulo}
       </Typography>
@@ -62,18 +61,40 @@ export default function GServiciosBlock({datos, blockAlign}) {
     </Grid>
   )
 
-  function  total (){
-    
-    return <div>pipo</div>
+  console.log("Me llega por parametro la alineacion: " + alineacion);
+  
+   
+  const textoIz = (
+    <>
+      { texto },
+      {imagen}
+    </>
+  );
 
+  const textoDer = (
+    <>
+      { imagen },
+      {texto}
+    </>
+  );
+
+  function colocar() {
+    console.log("Dentro alineacion: " + alineacion);
+    if (alineacion === "left") {
+      return {textoIz}
+    } else {
+      return {textoDer}
+    }
   }
-
+  // {isLoggedIn ? <button>Logout</button> : <button>Login</button>}
   return(
-    <Grid item>
-      <Grid container justify= "center" direction="row">
-        {total}
-      </Grid>
+   
+    <Grid container justify="center" direction="row">
+      
+      {alineacion  ? {textoIz}: {textoDer}}
+        
     </Grid>
+    
   )
 
 }

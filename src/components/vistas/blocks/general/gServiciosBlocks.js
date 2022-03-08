@@ -7,21 +7,21 @@ export default function GServiciosBlocks({datos}) {
   return(
     <>      
       {/*---Bloque Quiromasaje---*/}
-      <GServiciosBlock datos = {datos.gQuiromasaje} blockAlign="left"/>
+      <GServiciosBlock datos={datos.gQuiromasaje} left={true}/>
       {/*---Bloque Osteopatía---*/}
-      <GServiciosBlock datos = {datos.gOsteopatia} blockAlign="right"/>
+      <GServiciosBlock datos = {datos.gOsteopatia} left={false}/>
       {/*---Bloque Presoterapia---*/}
-      <GServiciosBlock datos = {datos.gPresoterapia} blockAlign="left"/>
+      <GServiciosBlock datos = {datos.gPresoterapia} left={true}/>
       {/*---Bloque Deportivo---*/}
-      <GServiciosBlock datos = {datos.gDeportivo} blockAlign="right"/>
+      <GServiciosBlock datos = {datos.gDeportivo} left={false}/>
       {/*---Bloque Dietético---*/}
-      <GServiciosBlock datos = {datos.gDietetico} blockAlign="left"/>
+      <GServiciosBlock datos = {datos.gDietetico} left={true}/>
       {/*---Bloque Bonos---*/}
-      <GServiciosBlock datos = {datos.gBonos} blockAlign="right"/>
+      <GServiciosBlock datos = {datos.gBonos} left={false}/>
       {/*---Bloque Rejuvenecimiento---*/}
-      <GServiciosBlock datos = {datos.gRejuvenecimiento} blockAlign="left"/>
+      <GServiciosBlock datos = {datos.gRejuvenecimiento} left={true}/>
       {/*---Bloque Tatoo---*/}
-      <GServiciosBlock datos = {datos.gTatoo} blockAlign="right"/>
+      <GServiciosBlock datos = {datos.gTatoo} left={false}/>
     </>
   )
 }
