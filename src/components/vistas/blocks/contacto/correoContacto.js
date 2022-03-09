@@ -52,9 +52,48 @@ export default function CorreoContacto({datos}) {
   const matchesMd = useMediaQuery(theme.breakpoints.down("md"));
 
   const [nombre, setNombre] = useState("");
+  const [nombreHelper, setNombreHelper] = useState("");
+
   const [correo, setCorreo] = useState("");
+  const [correoHelper, setCorreoHelper] = useState("");
+
   const [telefono, setTelefono] = useState("");
+  const [telefonoHelper, setTelefonoHelper] = useState("");
+
   const [mensaje, setMensaje] = useState("");
+  const [mensajeHelper, setMensajeHelper] = useState("");
+
+  const onChange = event =>{
+    let valid;
+
+    switch(event.target.id) {
+      case 'correo':
+        setCorreo(event.target.value)
+        valid = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(event.target.value)
+
+        if(!valid){
+          setCorreoHelper("Correo no válido")
+        } else {
+          setCorreoHelper("")
+        }
+
+        break;
+      case 'telefono':
+        setTelefono(event.target.value)
+        valid = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(event.target.value)
+
+        if(!valid){
+          setTelefonoHelper("Teléfono no válido")
+        } else {
+          setTelefonoHelper("")
+        }
+
+        break;
+
+
+       default: break;
+    }
+  }
 
 
   return(
@@ -116,18 +155,22 @@ export default function CorreoContacto({datos}) {
             <TextField
               label="Correo electrónico"
               id="correo"
+              error={correoHelper.length !== 0}
+              helperText={correoHelper}
               fullWidth
               value={correo}
-              onChange={(event) => setCorreo(event.target.value)}
+              onChange={onChange}
             />
           </Grid>
           <Grid item>
             <TextField
               label="Teléfono"
               id="telefono"
+              error={telefonoHelper.length !== 0}
+              helperText={telefono}
               fullWidth
               value={telefono}
-              onChange={(event) => setTelefono(event.target.value)}
+              onChange={onChange}
             />
           </Grid>
         
