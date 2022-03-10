@@ -7,6 +7,7 @@ import { useTheme } from "@material-ui/core/styles";
 import { Button } from '@material-ui/core';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
+import { Message } from '@material-ui/icons';
 
 const useStyles = makeStyles(theme=>({
   precio: {
@@ -46,9 +47,10 @@ const useStyles = makeStyles(theme=>({
 }));
 
 export default function CorreoContacto({datos}) {
+  //const mailtoForm = '$"mailto: {datos.correo}`";
   const classes = useStyles();
   const theme = useTheme();
-  const matchesSm = useMediaQuery(theme.breakpoints.down("sm"));
+  //const matchesSm = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesMd = useMediaQuery(theme.breakpoints.down("md"));
 
   const [nombre, setNombre] = useState("");
@@ -58,7 +60,7 @@ export default function CorreoContacto({datos}) {
   const [correoHelper, setCorreoHelper] = useState("");
 
   const [telefono, setTelefono] = useState("");
-  const [telefonoHelper, setTelefonoHelper] = useState("");
+  //const [telefonoHelper, setTelefonoHelper] = useState("");
 
   const [mensaje, setMensaje] = useState("");
   const [mensajeHelper, setMensajeHelper] = useState("");
@@ -78,23 +80,22 @@ export default function CorreoContacto({datos}) {
         }
 
         break;
-      case 'telefono':
-        setTelefono(event.target.value)
-        valid = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(event.target.value)
+      //case 'telefono':
+        //setTelefono(event.target.value)
+        //valid = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(event.target.value)
 
-        if(!valid){
-          setTelefonoHelper("Teléfono no válido")
-        } else {
-          setTelefonoHelper("")
-        }
+        //if(!valid){
+          //setTelefonoHelper("Teléfono no válido")
+        //} else {
+          //setTelefonoHelper("")
+        //}
 
-        break;
+        //break;
 
 
        default: break;
     }
   }
-
 
   return(
     <>
@@ -122,9 +123,10 @@ export default function CorreoContacto({datos}) {
                 variant='body1'
                 style={{color:theme.palette.common.green}}
               >
-                {datos.telefono}
+                <a href={`tel:${datos.telefono}`} style={{textDecoration: "none", color:"inherit"}}>{datos.telefono}</a>
               </Typography>
             </Grid>
+            
           </Grid>
 
           <Grid item container style={{marginBottom:"1.5em"}}>
@@ -136,7 +138,7 @@ export default function CorreoContacto({datos}) {
                 variant='body1'
                 style={{color:theme.palette.common.green}}
               >
-                {datos.correo}
+                <a href={`mailto:${datos.correo}`}  style={{textDecoration: "none", color:"inherit"}}>{datos.correo}</a>
               </Typography>
             </Grid>
           </Grid>
@@ -162,17 +164,7 @@ export default function CorreoContacto({datos}) {
               onChange={onChange}
             />
           </Grid>
-          <Grid item>
-            <TextField
-              label="Teléfono"
-              id="telefono"
-              error={telefonoHelper.length !== 0}
-              helperText={telefono}
-              fullWidth
-              value={telefono}
-              onChange={onChange}
-            />
-          </Grid>
+          
         
           <Grid item style={{maxWidth:"25em"}}>
             <TextField
@@ -187,8 +179,12 @@ export default function CorreoContacto({datos}) {
           </Grid>
         </Grid>
 
-        <Grid item container justify='center' style={{marginTop:"1.5em", marginBottom:"1.5em"}}>
+        <Grid item container
+          justify='center' 
+          style={{marginTop:"1.5em", marginBottom:"1.5em"}}
+        >
           <Button
+            disabled = {nombre.length === 0 || mensaje.length === 0 || correoHelper.length !== 0 || correo.length === 0}
             variant="contained"
             className={classes.botonEnvio}
           >
