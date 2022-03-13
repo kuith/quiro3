@@ -28,6 +28,9 @@ import MapaContacto from './vistas/blocks/contacto/mapaContacto';
 import HorarioContacto from './vistas/blocks/contacto/horarioContacto';
 import CorreoContacto from './vistas/blocks/contacto/correoContacto';
 
+//Instalaciones
+import Instalaciones from './vistas/instalaciones/instalaciones';
+
 
 import {menuServicios} from '../util/datos/datos';
 import {listaDrawer} from '../util/datos/datos';
@@ -37,6 +40,7 @@ import * as datosLanding from '../util/datos/datosLanding';
 import * as datosGeneralServicios from '../util/datos/datosGeneralServicios';
 import * as datosServicios from '../util/datos/datosServicios';
 import {contacto} from '../util/datos/datosContacto';
+import {imagenesInstalaciones} from '../util/datos/datosInstalaciones';
 
 //Variables datos
 const datosServiciosQuiromasaje = datosServicios.quiromasaje;
@@ -47,6 +51,7 @@ const datosServiciosDietetico = datosServicios.dietetico;
 const datosServiciosBonos = datosServicios.bonos;
 const datosServiciosFacial = datosServicios.facial;
 const datosServiciosTatoo = datosServicios.tatoo;
+
 
 function App() {
   return (
@@ -135,7 +140,12 @@ function App() {
               //blockDireccion={<DireccionContacto datos={contacto}/>}
               blockHorario = {<HorarioContacto datos={contacto}/>}
               blockCorreo = {<CorreoContacto datos = {contacto}/>}
-            />}  
+            />}
+          />
+          <Route exact path="/instalaciones" 
+            element={<Instalaciones
+              datos= {imagenesInstalaciones}
+            />}
           />
        
 

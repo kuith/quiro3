@@ -32,17 +32,17 @@ export default function LandingBlock({datos, blockAlign}) {
   const matchesSm = useMediaQuery(theme.breakpoints.down("sm"));
 
   let alineacion = "undefined";
-  let margen = "marginLeft";
 
   if( blockAlign === "right") {
     alineacion = "flex-end";
-    margen = "marginRight";
   }
  
   return(
     <Grid item>
-        <Grid container justify= {matchesSm ? "center": alineacion} direction="row" className={classes.espacing}>
-          <Grid item style={{marginLeft: matchesSm ? 0 : "7em", textAlign: matchesSm ? "center": undefined}}>
+        <Grid container alignItems='center' justify= {matchesSm ? "center": alineacion} direction="row" className={classes.espacing}>
+          <Grid item 
+            style={{marginLeft: matchesSm ? 0 : "7em", textAlign: matchesSm ? "center": undefined}}
+          >
             <Typography  variant="h2">
               {datos.titulo}
             </Typography>
@@ -58,7 +58,7 @@ export default function LandingBlock({datos, blockAlign}) {
             </Button>
            
           </Grid>
-          <Grid item style={{marginRight: matchesSm ? 0 : "7em"}}>
+          <Grid item style={{marginRight: matchesSm ? 0 : "7em",marginLeft:"7em"}}>
             <img className={classes.icon} src={datos.img} alt="Logo principal"/>
           </Grid>
         </Grid>

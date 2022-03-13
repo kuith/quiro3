@@ -7,7 +7,9 @@ import { useTheme } from "@material-ui/core/styles";
 import { Button } from '@material-ui/core';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
-import { Message } from '@material-ui/icons';
+
+import Dialog from '@material-ui/core/Dialog';
+import DialogContent from '@material-ui/core/DialogContent';
 
 const useStyles = makeStyles(theme=>({
   precio: {
@@ -50,20 +52,23 @@ export default function CorreoContacto({datos}) {
   //const mailtoForm = '$"mailto: {datos.correo}`";
   const classes = useStyles();
   const theme = useTheme();
-  //const matchesSm = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesXs = useMediaQuery(theme.breakpoints.down("xs"));
   const matchesMd = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesSm = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [nombre, setNombre] = useState("");
-  const [nombreHelper, setNombreHelper] = useState("");
+  //const [nombreHelper, setNombreHelper] = useState("");
 
   const [correo, setCorreo] = useState("");
   const [correoHelper, setCorreoHelper] = useState("");
 
-  const [telefono, setTelefono] = useState("");
+  //const [telefono, setTelefono] = useState("");
   //const [telefonoHelper, setTelefonoHelper] = useState("");
 
   const [mensaje, setMensaje] = useState("");
-  const [mensajeHelper, setMensajeHelper] = useState("");
+  //const [mensajeHelper, setMensajeHelper] = useState("");
+
+  const [open, setOpen] = useState(false)
 
   const onChange = event =>{
     let valid;
@@ -97,6 +102,146 @@ export default function CorreoContacto({datos}) {
     }
   }
 
+  const escribanos = (
+    <Grid item>
+          <Typography variant="h3" style={{lineHeight:1}}>Escríbanos</Typography>
+          <Typography 
+            variant="body1"
+            style={{color:theme.palette.common.green, marginBottom:"1em"}}
+            >Le esperamos
+          </Typography>
+        </Grid>
+  );
+
+  const correoTelefono = (
+    <Grid item>
+      <Grid item container direction='row'>
+        <Grid item>
+          <PhoneIcon className={classes.icon}/>
+        </Grid>
+        <Grid item>
+          <Typography 
+            variant='body1'
+            style={{color:theme.palette.common.green}}
+          >
+            <a href={`tel:${datos.telefono}`} style={{textDecoration: "none", color:"inherit"}}>{datos.telefono}</a>
+          </Typography>
+        </Grid>
+        
+      </Grid>
+
+      <Grid item container style={{marginBottom:"1.5em"}}>
+        <Grid item>
+          <EmailIcon className={classes.icon}/>
+        </Grid>
+        <Grid item>
+          <Typography 
+            variant='body1'
+            style={{color:theme.palette.common.green}}
+          >
+            <a href={`mailto:${datos.correo}`}  style={{textDecoration: "none", color:"inherit"}}>{datos.correo}</a>
+          </Typography>
+        </Grid>
+      </Grid>
+    </Grid>
+  )
+
+  const textFieldsFormulario =  (
+    <Grid item container direction='column' style={{maxWidth:"20em"}}>
+      <Grid item>
+        <TextField
+          label="Nombre" 
+          id="nombre"
+          fullWidth
+          value={nombre} 
+          onChange={(event) => setNombre(event.target.value)} 
+        />
+      </Grid>
+      <Grid item>
+        <TextField
+          label="Correo electrónico"
+          id="correo"
+          error={correoHelper.length !== 0}
+          helperText={correoHelper}
+          fullWidth
+          value={correo}
+          onChange={onChange}
+        />
+      </Grid>
+        
+      <Grid item style={{maxWidth:"25em"}}>
+        <TextField
+          InputProps={{disableUnderline: true}}
+          id="mensaje"
+          className={classes.mensaje}
+          onChange={(event) => setMensaje(event.target.value)}
+          multiline
+          fullWidth
+          value={mensaje}
+          rows={10}
+        />
+      </Grid>
+    </Grid>
+  )
+
+  const botonFormulario = (
+    <Grid item container
+      justify='center' 
+      style={{marginTop:"1.5em", marginBottom:"1.5em"}}
+    >
+      <Button
+        disabled = {nombre.length === 0 || mensaje.length === 0 || correoHelper.length !== 0 || correo.length === 0}
+        variant="contained"
+        className={classes.botonEnvio}
+        onClick = {()=>setOpen(true)}
+      >
+        Enviar Mensaje
+      </Button>
+    </Grid>
+  )
+  const formulario = (
+    <>
+    
+    {textFieldsFormulario}
+    {botonFormulario}
+    
+    </>
+  )
+
+  const dialogo =(
+    <Dialog 
+      style={{zIndex: 1302}}
+      open={open}
+      fullScreen={matchesXs}
+      onClose={()=>setOpen(false)}
+      PaperProps={{
+        style: {
+          paddingTop: matchesXs ? "1em": "5em",
+          paddingBottom: matchesXs ? "1em": "5em",
+          paddingLeft: matchesXs ? 0 : matchesSm ? "5em" : matchesMd ? "10em" : "20em",
+          paddingRight: matchesXs ? 0 : matchesSm ? "5em" : matchesMd ? "10em" : "20em"
+        }
+      }}
+    >
+      <DialogContent>
+        <Grid container direction='column'>
+          <Grid item>
+            <Typography align='center' variant='h4' gutterBottom>Confirme mensaje</Typography>
+          </Grid>
+            {textFieldsFormulario}
+        </Grid>
+        <Grid item container style={{marginTop:"1em"}} alignItems="center">
+          <Grid item>
+            <Button color='primary' style={{fontWeight:300}} onClick={()=>setOpen(false)}>Cancelar</Button>
+          </Grid>
+          <Grid item>
+            {botonFormulario}
+          </Grid>
+        </Grid>
+      </DialogContent>
+    </Dialog>
+  )
+
   return(
     <>
       <Grid item container 
@@ -105,92 +250,15 @@ export default function CorreoContacto({datos}) {
         lg 
         style={{marginTop: matchesMd ? "3em" : 0,}}
       > 
-        <Grid item>
-          <Typography variant="h3" style={{lineHeight:1}}>Escríbanos</Typography>
-          <Typography 
-            variant="body1"
-            style={{color:theme.palette.common.green, marginBottom:"1em"}}
-            >Le esperamos
-          </Typography>
-        </Grid>
-        <Grid item>
-          <Grid item container direction='row'>
-            <Grid item>
-              <PhoneIcon className={classes.icon}/>
-            </Grid>
-            <Grid item>
-              <Typography 
-                variant='body1'
-                style={{color:theme.palette.common.green}}
-              >
-                <a href={`tel:${datos.telefono}`} style={{textDecoration: "none", color:"inherit"}}>{datos.telefono}</a>
-              </Typography>
-            </Grid>
-            
-          </Grid>
-
-          <Grid item container style={{marginBottom:"1.5em"}}>
-            <Grid item>
-              <EmailIcon className={classes.icon}/>
-            </Grid>
-            <Grid item>
-              <Typography 
-                variant='body1'
-                style={{color:theme.palette.common.green}}
-              >
-                <a href={`mailto:${datos.correo}`}  style={{textDecoration: "none", color:"inherit"}}>{datos.correo}</a>
-              </Typography>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item container direction='column' style={{maxWidth:"25em"}}>
-          <Grid item>
-            <TextField
-              label="Nombre" 
-              id="nombre"
-              fullWidth
-              value={nombre} 
-              onChange={(event) => setNombre(event.target.value)} 
-            />
-          </Grid>
-          <Grid item>
-            <TextField
-              label="Correo electrónico"
-              id="correo"
-              error={correoHelper.length !== 0}
-              helperText={correoHelper}
-              fullWidth
-              value={correo}
-              onChange={onChange}
-            />
-          </Grid>
-          
+        {escribanos}
+        {correoTelefono}
         
-          <Grid item style={{maxWidth:"25em"}}>
-            <TextField
-              InputProps={{disableUnderline: true}}
-              id="mensaje"
-              className={classes.mensaje}
-              onChange={(event) => setMensaje(event.target.value)}
-              multiline
-              fullWidth
-              rows={10}
-            />
-          </Grid>
-        </Grid>
+        {formulario}
+        
+        {/* **Bloque dialog ***/}
+        {dialogo}
+        {/* FIN Bloque dialog */}
 
-        <Grid item container
-          justify='center' 
-          style={{marginTop:"1.5em", marginBottom:"1.5em"}}
-        >
-          <Button
-            disabled = {nombre.length === 0 || mensaje.length === 0 || correoHelper.length !== 0 || correo.length === 0}
-            variant="contained"
-            className={classes.botonEnvio}
-          >
-            Enviar Mensaje
-          </Button>
-        </Grid>
       </Grid>
     </>
 
