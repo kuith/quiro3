@@ -10,6 +10,7 @@ import BlocksContainer from '../components/vistas/blocks/blocksContainer';
 import LandingBlocks from './vistas/blocks/landing/landingBlocks';
 import GServiciosBlocks from './vistas/blocks/general/gServiciosBlocks';
 import ServiciosContainer from './vistas/blocks/servicios/ServiciosContariner';
+import Landing from './ui/containers/landing';
 
 //bloques servicios
 import QuiromasajeBlockDatos from './vistas/serviciosBlocks/quiromasajeBlock';
@@ -59,8 +60,13 @@ function App() {
       <BrowserRouter>  
         <Header datMenu={menuServicios} listaDrawer={listaDrawer}/>
         <Routes>
-          <Route exact path="/" element={<BlocksContainer blocks={<LandingBlocks datos={datosLanding}/>}/>} />
-          <Route exact path="/servicios/serviciosGeneral" element={<BlocksContainer blocks={<GServiciosBlocks datos={datosGeneralServicios}/>}/>} />
+          {/* <Route exact path="/" element={<BlocksContainer blocks={<LandingBlocks datos={datosLanding}/>}/>} /> */}
+          <Route exact path="/" element={<Landing datos={datosLanding}/>} />
+          <Route exact path="/servicios/serviciosGeneral" 
+            element={<BlocksContainer 
+              blocks={<GServiciosBlocks 
+              datos={datosGeneralServicios}
+              />}/>} />
           <Route exact path="/servicios/quiromasaje" 
             element={<BlocksContainer 
                 blocks={<ServiciosContainer 
