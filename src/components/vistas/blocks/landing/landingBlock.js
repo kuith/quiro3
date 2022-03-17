@@ -26,43 +26,34 @@ const useStyles = makeStyles(theme=>({
 
 }));
 
-export default function LandingBlock({datos, blockAlign}) {
+export default function LandingBlock({datos}) {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSm = useMediaQuery(theme.breakpoints.down("sm"));
 
-  let alineacion = "undefined";
-
-  if( blockAlign === "right") {
-    alineacion = "flex-end";
-  }
  
   return(
-    <Grid item>
-        <Grid container alignItems='center' justify= {matchesSm ? "center": alineacion} direction="row" className={classes.espacing}>
-          <Grid item 
-            style={{marginLeft: matchesSm ? 0 : "7em", textAlign: matchesSm ? "center": undefined}}
-          >
-            <Typography  variant="h2">
-              {datos.titulo}
-            </Typography>
-            <Typography  variant="subtitle1">
-            {datos.subtitulo1}
-            </Typography>
-            <Button 
-              component={Link} to ={datos.link}
-              variant="outlined" 
-              className={classes.linkButton}
-            >
-              <span style={{marginRight: 10}}>Más información</span>
-            </Button>
-           
-          </Grid>
-          <Grid item style={{marginRight: matchesSm ? 0 : "7em",marginLeft:"7em"}}>
-            <img className={classes.icon} src={datos.img} alt="Logo principal"/>
-          </Grid>
-        </Grid>
-      </Grid>
+   
+    <Grid item 
+      style={{marginLeft: matchesSm ? 0 : "7em", textAlign: matchesSm ? "center": undefined}}
+    >
+      <Typography  variant="h2">
+        {datos.titulo}
+      </Typography>
+      <Typography  variant="subtitle1">
+      {datos.subtitulo1}
+      </Typography>
+      <Button 
+        component={Link} to ={datos.link}
+        variant="outlined" 
+        className={classes.linkButton}
+      >
+        <span style={{marginRight: 10}}>Más información</span>
+      </Button>
+      
+    </Grid>
+
+      
   )
 
 }

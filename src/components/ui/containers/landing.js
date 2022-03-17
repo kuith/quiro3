@@ -1,14 +1,19 @@
 import React from 'react';
-import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 
-import ImagenFondo from '../../../util/images/landing/landing.png';
+import { useMediaQuery } from '@material-ui/core';
+
+import ImagenFondo3 from '../../../util/images/landing/landing_03.png';
+import LandingBlock from '../../vistas/blocks/landing/landingBlock';
 
 
 const useStyles = makeStyles(theme=>({
   backGround: {
-  backgroundImage:`url(${ImagenFondo})`,
+  backgroundImage:`url(${ImagenFondo3})`,
   backgroundPosition:'center',
   backgroundSize:'cover',
   backgroundRepeat:'no-repeat',
@@ -22,25 +27,51 @@ const useStyles = makeStyles(theme=>({
   },
   fondoVerde:{
     backgroundColor:"#ccf8e8"
-  }
+  },
+  icon: {
+    marginTop: "2em",
+    [theme.breakpoints.down("xs")]: {
+      marginLeft: 0
+    }
+  },
+  linkButton:{
+    ...theme.typography.linkButton,
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.main
+    },
+    marginTop:"1em"
+  },
+  espacing: {
+    marginTop:"1em"
+  },
 }));
 
 export default function Landing({datos}) {
   const classes = useStyles();
+  const theme = useTheme();
+  const matchesXs = useMediaQuery(theme.breakpoints.down("xs"));
+  const matchesSm = useMediaQuery(theme.breakpoints.down("sm"));
  
 
   return(
-    <Grid container direction='row'>
-      <Grid item lg={7}>
-        <img src={ImagenFondo} alt='Fondo' className={classes.imagen} />
+    <Grid container 
+      direction={matchesSm ? 'column' : 'row' }
+      style={{marginLeft: matchesSm ? 0 : "3em"}}
+      alignItems={matchesSm ? 'center' : 'undefined'}
+    >
+      <Grid item xs={5}>
+        <img src={ImagenFondo3} alt='Fondo' className={classes.imagen} />
       </Grid>
-      <Grid item lg={5} className={classes.fondoVerde}>
-        <Typography>
-          una cosa
-        </Typography>
-        <Typography>
-          una cosakjkj
-        </Typography>
+      <Grid item  container xs={6} 
+        style={{marginTop:'2em'}} 
+        direction='column'
+        alignItems={matchesSm ? 'center' : 'flex-end'}
+      >
+        <LandingBlock datos = {datos.serviciosLanding}/>
+        <LandingBlock datos = {datos.contactoLanding}/>
+        <LandingBlock datos = {datos.instalacionesLanding}/>
+
+
       </Grid>
     </Grid>
   )
