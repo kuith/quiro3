@@ -1,9 +1,7 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Grid from '@material-ui/core/Grid';
-import { Typography } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
+
 
 import { useMediaQuery } from '@material-ui/core';
 
@@ -49,7 +47,6 @@ const useStyles = makeStyles(theme=>({
 export default function Landing({datos}) {
   const classes = useStyles();
   const theme = useTheme();
-  const matchesXs = useMediaQuery(theme.breakpoints.down("xs"));
   const matchesSm = useMediaQuery(theme.breakpoints.down("sm"));
  
 
@@ -59,20 +56,21 @@ export default function Landing({datos}) {
       style={{marginLeft: matchesSm ? 0 : "3em"}}
       alignItems={matchesSm ? 'center' : 'undefined'}
     >
+      
       <Grid item xs={5}>
         <img src={ImagenFondo3} alt='Fondo' className={classes.imagen} />
       </Grid>
+
       <Grid item  container xs={6} 
-        style={{marginTop:'2em'}} 
+        style={{marginTop:'3em'}} 
         direction='column'
         alignItems={matchesSm ? 'center' : 'flex-end'}
       >
         <LandingBlock datos = {datos.serviciosLanding}/>
         <LandingBlock datos = {datos.contactoLanding}/>
         <LandingBlock datos = {datos.instalacionesLanding}/>
-
-
       </Grid>
+
     </Grid>
   )
 }

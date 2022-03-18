@@ -7,11 +7,13 @@ import Header from './ui/containers/header';
 import Footer from './ui/containers/Footer';
 
 import BlocksContainer from '../components/vistas/blocks/blocksContainer';
-import LandingBlocks from './vistas/blocks/landing/landingBlocks';
+//import LandingBlocks from './vistas/blocks/landing/landingBlocks';
 import GServiciosBlocks from './vistas/blocks/general/gServiciosBlocks';
 import ServiciosContainer from './vistas/blocks/servicios/ServiciosContariner';
 import Landing from './ui/containers/landing';
-import LandingBlock from './vistas/blocks/landing/landingBlock';
+//import LandingBlock from './vistas/blocks/landing/landingBlock';
+
+//<Route exact path="/" element={<BlocksContainer blocks={<LandingBlocks datos={datosLanding}/>}/>} />
 
 //bloques servicios
 import QuiromasajeBlockDatos from './vistas/serviciosBlocks/quiromasajeBlock';
@@ -61,7 +63,6 @@ function App() {
       <BrowserRouter>  
         <Header datMenu={menuServicios} listaDrawer={listaDrawer}/>
         <Routes>
-          {/* <Route exact path="/" element={<BlocksContainer blocks={<LandingBlocks datos={datosLanding}/>}/>} /> */}
           <Route exact path="/" element={<Landing datos={datosLanding} />} />
           <Route exact path="/servicios/serviciosGeneral" 
             element={<BlocksContainer 
