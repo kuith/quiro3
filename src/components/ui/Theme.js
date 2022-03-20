@@ -1,33 +1,3 @@
-/* //import { createTheme } from '@mui/material/styles';
-import { createMuiTheme} from '@material-ui/core/styles';
-
-const quiroGreen = '#04bba6';
-const quiroDarkGreen = '##cddc39'
-
-const theme = createMuiTheme({
-  
-  palette:{
-    common:{
-      green: `${quiroGreen}`
-    },
-    primary:{
-      main: `${quiroGreen}`
-    },
-    secondary:{
-      main: `${quiroDarkGreen}`
-    },
-    status: {
-      danger: '#e53e3e',
-    },
-  },
-  /* typography:{
-    fontFamily: ["Acme", "sans-serif"].join(','),
-    fontSize:16
-  } 
-});
-
-export default theme; */
-
 import { createMuiTheme } from "@material-ui/core/styles";
 
 const arcBlue = "#0B72B9";
@@ -35,7 +5,7 @@ const arcOrange = "#FFBA60";
 const arcGrey = "#868686";
 const quiroGreen = '#26a69a';
 const darkGreen = '#00695c';
-//const quiroGreen = '#04bba6';
+
 
 export default createMuiTheme({
   palette: {
@@ -69,7 +39,7 @@ export default createMuiTheme({
       lineHeight: 1.5
     },
     h3: {
-      fontFamily: "Pacifico",
+      fontFamily: "Raleway",
       fontSize: "2.5rem",
       color: quiroGreen
     },
@@ -77,7 +47,7 @@ export default createMuiTheme({
       fontFamily: "Raleway",
       fontSize: "1.75rem",
       color: quiroGreen,
-      fontWeight: 700
+      
     },
     h5: {
       fontFamily: "Raleway",

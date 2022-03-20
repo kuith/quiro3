@@ -30,9 +30,10 @@ export default function LandingBlock({datos}) {
    <>
     <Grid item 
       style={{marginLeft: matchesSm ? 0 : "7em", textAlign: matchesSm ? "center": undefined}}
+      align="right"
     >
         
-      <Typography  variant= {matchesXs ? "h4" : matchesSm ? "h3": "h2"}>
+      <Typography  variant= {matchesXs ? "h4" : matchesSm ? "h3": "h2"} >
         {datos.titulo}
       </Typography>
 
@@ -41,13 +42,13 @@ export default function LandingBlock({datos}) {
       </Typography>
     </Grid>
     
-    <Grid item style={{marginBottom:"3em"}}>
+    <Grid item style={{marginBottom:"4em"}}>
       <Button 
         component={Link} to ={datos.link}
         variant="outlined" 
         className={classes.linkButton}
       >
-        Más información
+        {datos.boton}
       </Button>
     </Grid>
   </>

@@ -1,6 +1,6 @@
 const contacto = {
   titulo:"Contacto",
-  calle:"Ronda del Saliente, nº 1",
+  calle:"Ronda de Saliente, nº 1",
   ciudad:"Torrejon de Ardoz (Madrid).",
   telefono:"91 011 12 60 - 653 82 29 45",
   correo:"josesevilla.herrera@hotmail.com",
