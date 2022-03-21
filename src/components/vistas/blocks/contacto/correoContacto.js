@@ -184,19 +184,23 @@ export default function CorreoContacto({datos}) {
     </Grid>
   )
 
+  const Boton = (
+    <Button
+      disabled = {nombre.length === 0 || mensaje.length === 0 || correoHelper.length !== 0 || correo.length === 0}
+      variant="contained"
+      className={classes.botonEnvio}
+      onClick = {()=>setOpen(true)}
+    >
+      Enviar Mensaje
+    </Button>
+  );
+
   const botonFormulario = (
     <Grid item container
       justify='center' 
       style={{marginTop:"1.5em", marginBottom:"1.5em"}}
     >
-      <Button
-        disabled = {nombre.length === 0 || mensaje.length === 0 || correoHelper.length !== 0 || correo.length === 0}
-        variant="contained"
-        className={classes.botonEnvio}
-        onClick = {()=>setOpen(true)}
-      >
-        Enviar Mensaje
-      </Button>
+      {Boton}
     </Grid>
   )
   const formulario = (
