@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import axios from 'axios';
 import { makeStyles} from "@material-ui/core/styles";
 import Grid from '@material-ui/core/Grid';
 import { TextField, Typography } from '@material-ui/core';
@@ -7,6 +8,8 @@ import { useTheme } from "@material-ui/core/styles";
 import { Button } from '@material-ui/core';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
+import { CircularProgress } from '@material-ui/core';
+import { Snackbar } from '@material-ui/core';
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -57,18 +60,19 @@ export default function CorreoContacto({datos}) {
   const matchesSm = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [nombre, setNombre] = useState("");
-  //const [nombreHelper, setNombreHelper] = useState("");
 
   const [correo, setCorreo] = useState("");
   const [correoHelper, setCorreoHelper] = useState("");
 
-  //const [telefono, setTelefono] = useState("");
-  //const [telefonoHelper, setTelefonoHelper] = useState("");
-
   const [mensaje, setMensaje] = useState("");
-  //const [mensajeHelper, setMensajeHelper] = useState("");
 
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
+
+  const [loading, setLoading] = useState(false);
+
+  const [alert, setAlert] = useState({open: false, message:"", backgroundColor: ""});
+
+  const [alertMessage, setAlertMesssage] = useState("");
 
   const onChange = event =>{
     let valid;
@@ -85,21 +89,36 @@ export default function CorreoContacto({datos}) {
         }
 
         break;
-      //case 'telefono':
-        //setTelefono(event.target.value)
-        //valid = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(event.target.value)
-
-        //if(!valid){
-          //setTelefonoHelper("Teléfono no válido")
-        //} else {
-          //setTelefonoHelper("")
-        //}
-
-        //break;
-
 
        default: break;
     }
+  }
+
+  const onConfirm = () => {
+    const cors = 'https://cors-anywhere.herokuapp.com/';
+    setLoading(true)
+
+    axios.get(`${cors}https://us-central1-quirodiet-de8f0.cloudfunctions.net/sendMail`, {params: {
+      nombre: nombre,
+      correo: correo,
+      mensaje: mensaje
+    }})
+    .then(res => {
+      setLoading(false);
+      setOpen(false);
+      setNombre("");
+      setCorreo("");
+      setMensaje("");
+      setAlert({open: true, message:"Mensaje enviado correctamente", backgroundColor:"#4BB453"})
+    })
+    .catch(err => {
+      setLoading(false);
+      setAlert({
+        open:true, 
+        message:"Algo fue mal. Por favor, intentelo más tarde", 
+        backgroundColor:"#FF3232"
+      });
+    });
   }
 
   const escribanos = (
@@ -205,11 +224,25 @@ export default function CorreoContacto({datos}) {
   )
   const formulario = (
     <>
-    
     {textFieldsFormulario}
     {botonFormulario}
-    
     </>
+  )
+
+  const BotonDialog = (
+    <Grid item container
+      justify='center' 
+      style={{marginTop:"1.5em", marginBottom:"1.5em"}}
+    >
+      <Button
+        disabled = {nombre.length === 0 || mensaje.length === 0 || correoHelper.length !== 0 || correo.length === 0}
+        variant="contained"
+        className={classes.botonEnvio}
+        onClick = {onConfirm}
+    >
+        {loading ? <CircularProgress/> :  "Enviar Mensaje"}
+      </Button>
+    </Grid>
   )
 
   const dialogo =(
@@ -239,11 +272,26 @@ export default function CorreoContacto({datos}) {
             <Button color='primary' style={{fontWeight:300}} onClick={()=>setOpen(false)}>Cancelar</Button>
           </Grid>
           <Grid item>
-            {botonFormulario}
+            {BotonDialog}
           </Grid>
         </Grid>
       </DialogContent>
     </Dialog>
+  )
+
+  const snack = (
+    <Snackbar
+      open={alert.open}
+      ContentProps={{
+        style: {
+          backgroundColor: alert.backgroundColor
+        }
+      }}
+      anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      message={alert.message}
+      autoHideDuration={4000}
+      onClose={() => setAlert(false)}
+    />
   )
 
   return(
@@ -262,6 +310,7 @@ export default function CorreoContacto({datos}) {
         {/* **Bloque dialog ***/}
         {dialogo}
         {/* FIN Bloque dialog */}
+        {snack}
 
       </Grid>
     </>

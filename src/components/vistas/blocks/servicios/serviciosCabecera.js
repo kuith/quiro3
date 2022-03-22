@@ -24,7 +24,7 @@ export default function ServiciosCabecera({datos}) {
   return(
     <Grid item className={classes.rowContainer}>
       <Typography variant="h2">{datos.titulo}</Typography>
-      <Typography variant="h5" className={classes.margenAbajo}>{datos.subtitulo1}</Typography>
+      <Typography variant="h4" className={classes.margenAbajo}>{datos.subtitulo1}</Typography>
     </Grid>
   );
 }
