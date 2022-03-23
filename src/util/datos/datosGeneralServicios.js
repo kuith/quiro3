@@ -1,13 +1,12 @@
-/* import ImgCarruselQuiromasaje from '../utils/images/carrusel/C_Quiromasaje.png'
-import ImgCarruselOsteopatia from '../utils/images/carrusel/C_Osteopatia.png';
-import ImgCarruselPresoterapia from '../utils/images/carrusel/C_Presoterapia.png';
-import ImgCarruselDeportivo from '../utils/images/carrusel/C_Deportivo.png';
-import ImgCarruselDietetico from '../utils/images/carrusel/C_Dietetico.png';
-import ImgCarruselBonos from '../utils/images/carrusel/C_Bonos.png';
-import ImgCarruselFacial from '../utils/images/carrusel/C_Facial.png';
-import ImgCarruselTatoo from '../utils/images/carrusel/C_Tatoo.png'; */
+import ImgQuiromasaje from '../images/serviciosGeneral/quiromasaje.png'
+import ImgOsteopatia from '../images/serviciosGeneral/osteopatia.png'
+import ImgPresoterapia from '../images/serviciosGeneral/presoterapia.png'
+import ImgDeportivo from '../images/serviciosGeneral/deportivo.png'
+import ImgDietetico from '../images/serviciosGeneral/dietetico.png'
+import ImgBonos from '../images/serviciosGeneral/bonos.png'
+import ImgFacial from '../images/serviciosGeneral/facial.png'
+import ImgTatoo from '../images/serviciosGeneral/tatoo.png'
 
-import ImgQuiromasaje from '../images/landing/instalaciones.png'
 
 //Quiromasaje
 const gQuiromasaje = {
@@ -22,7 +21,7 @@ const gQuiromasaje = {
 
 //osteopatia
 const gOsteopatia = {
-  imagen: ImgQuiromasaje,
+  imagen: ImgOsteopatia,
   titulo: "Osteopatía",
   precio: "22",
   aclaracion: "(Con bono de 10)",
@@ -33,7 +32,7 @@ const gOsteopatia = {
 
 //presoterapia
 const gPresoterapia = {
-  imagen: ImgQuiromasaje,
+  imagen: ImgPresoterapia,
   titulo: "Presoterapia",
   precio: "22",
   aclaracion: "(Con bono de 10)",
@@ -44,7 +43,7 @@ const gPresoterapia = {
 
 //asesoramiento deportivo
 const gDeportivo = {
-  imagen: ImgQuiromasaje,
+  imagen: ImgDeportivo,
   titulo: "Asesoramiento deportivo",
   precio: "20",
   texto: "Déjate asesorar por nuestros expertos, notarás un gran cambio",
@@ -54,7 +53,7 @@ const gDeportivo = {
 
 //asesoramiento dietetico
 const gDietetico = {
-  imagen: ImgQuiromasaje,
+  imagen: ImgDietetico,
   titulo: "Asesoramiento dietético",
   precio: "20",
   texto: "Una buena alimentación te hara sentir bien y mejorar tu cuerpo.",
@@ -64,7 +63,7 @@ const gDietetico = {
 
 //bonos
 const gBonos = {
-  imagen: ImgQuiromasaje,
+  imagen: ImgBonos,
   titulo: "Bonos",
   precio: "76",
   texto: "Ahorra o regala bienestar. Te lo agradecerán.",
@@ -74,7 +73,7 @@ const gBonos = {
 
 //rejuvenecimeinto facial
 const gRejuvenecimiento = {
-  imagen: ImgQuiromasaje,
+  imagen: ImgFacial,
   titulo: "Rejuvenecimiento facial laser",
   precio: "60",
   texto: "Limpieza de anomalías de la piel, envejecimiento o manchas solares.",
@@ -84,7 +83,7 @@ const gRejuvenecimiento = {
 
 //eliminacion tatuajes
 const gTatoo = {
-  imagen: ImgQuiromasaje,
+  imagen: ImgTatoo,
   titulo: "Sesión de eliminación de tatuajes",
   precioCarrusel: "60 / 80",
   texto: "Tatuajes de todo tamaño y color.",
