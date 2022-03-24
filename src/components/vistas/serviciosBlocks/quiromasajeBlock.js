@@ -39,11 +39,11 @@ export default function QuiromasajeBlock({datos}) {
         <span className={classes.precio}>{datos.quiromasajeDescontracturante} € </span>.
       </Typography>
       <Typography variant="body1" paragraph>
-        Masaje recuperador de lesiones + osteopatia (a criterio del profesional): 
+        Masaje recuperador de lesiones + osteopatía (a criterio profesional): 
         <span className={classes.precio}>{datos.quiromasajeRecuperador} € </span>.
       </Typography>
       <Typography variant="body1" paragraph>
-        Masaje deportistas + osteopatia (a criterio del profesional) con descuento ADM y GO FIT: 
+        Masaje deportistas + osteopatía (a criterio del profesional) con descuento ADM y GO FIT: 
         <span className={classes.precio}>{datos.quiromasajeDeportistas} € </span>.
       </Typography>
       <Typography variant="body1" paragraph>

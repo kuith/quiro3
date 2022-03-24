@@ -7,6 +7,7 @@ import { Typography } from '@material-ui/core';
 import { useMediaQuery } from '@material-ui/core';
 import Hidden from '@material-ui/core/Hidden';
 
+
 const useStyles = makeStyles(theme=>({
   icon: {
     marginTop: "1em",
@@ -24,10 +25,20 @@ const useStyles = makeStyles(theme=>({
 
 }));
 
+
+
 export default function GServiciosBlock({datos, left}) {
   const classes = useStyles();
   const theme = useTheme();
+
   const matchesSm = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesmd = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesXs = useMediaQuery(theme.breakpoints.down("xs"));
+
+  console.log("Md: " + matchesmd);
+  console.log("Sm: " + matchesSm);
+  console.log("Xs: " + matchesXs);
+
   const alineacion = left;
   
 
@@ -37,16 +48,16 @@ export default function GServiciosBlock({datos, left}) {
 
   const texto = (  
    <>
-      <Typography  variant="h2">
+      <Typography  variant = {matchesXs ? "h4" : "h2"}>
         {datos.titulo}
       </Typography>
-      <Typography  variant="subtitle1">
+      <Typography  variant="h6">
         Desde: {datos.precio}
       </Typography>
-      <Typography  variant="subtitle1">
+      <Typography  variant= {matchesXs ? "h6" : "body1"}>
         {datos.aclaracion}
       </Typography>
-      <Typography  variant="h6">
+      <Typography  variant= {matchesXs ? "body1": "h6"}> 
         {datos.texto}
       </Typography>
       
@@ -62,11 +73,11 @@ export default function GServiciosBlock({datos, left}) {
 
   return(
    
-    <Grid  container justify="center" direction="row">
+    <Grid  container justify="center"  direction="row">
       
        {alineacion  ? 
           <>
-          <Grid item xs={5} style={{marginLeft: matchesSm ? 0 : "3em", textAlign: matchesSm ? "center": undefined}}>
+          <Grid item xs={5} style={{marginLeft: matchesSm ? 0 : "3em",marginBottom:"3em", textAlign: matchesSm ? "center": undefined}}>
             { texto }
           </Grid>
           <Hidden smDown>
@@ -82,7 +93,7 @@ export default function GServiciosBlock({datos, left}) {
               {imagen}
             </Grid>
           </Hidden>
-          <Grid item xs={5} style={{marginLeft: matchesSm ? 0 : "7em", textAlign: matchesSm ? "center": undefined}}>
+          <Grid item xs={5} style={{marginLeft: matchesSm ? 0 : "7em", marginBottom:"3em", textAlign: matchesSm ? "center": undefined}}>
             { texto }
           </Grid>
         </>

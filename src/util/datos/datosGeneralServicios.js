@@ -12,7 +12,7 @@ import ImgTatoo from '../images/serviciosGeneral/tatoo.png'
 const gQuiromasaje = {
   imagen: ImgQuiromasaje,
   titulo: "Quiromasaje",
-  precio: "22",
+  precio: "22 €",
   aclaracion: "(Con bono de 10)",
   texto: "Método de exploración (mediante la palpación) y de tratamiento manual, aplicado sobre la cubierta corporal.",
   servicio: "quiromasaje",
@@ -23,7 +23,7 @@ const gQuiromasaje = {
 const gOsteopatia = {
   imagen: ImgOsteopatia,
   titulo: "Osteopatía",
-  precio: "22",
+  precio: "22 €",
   aclaracion: "(Con bono de 10)",
   texto: "Tratamiento de dolencias basado en masajes y manipulación de articulaciones beneficiando tu salud.",
   servicio: "osteopatia",
@@ -34,7 +34,7 @@ const gOsteopatia = {
 const gPresoterapia = {
   imagen: ImgPresoterapia,
   titulo: "Presoterapia",
-  precio: "22",
+  precio: "22 €",
   aclaracion: "(Con bono de 10)",
   texto: "Utiliza la presión de aire, a modo de masaje, activando el sistema linfático mejorando la circulación.",
   servicio: "presoterapia",
@@ -45,7 +45,7 @@ const gPresoterapia = {
 const gDeportivo = {
   imagen: ImgDeportivo,
   titulo: "Asesoramiento deportivo",
-  precio: "20",
+  precio: "20 €",
   texto: "Déjate asesorar por nuestros expertos, notarás un gran cambio",
   servicio: "deportivo",
   link:"/servicios/deportivo"
@@ -55,7 +55,7 @@ const gDeportivo = {
 const gDietetico = {
   imagen: ImgDietetico,
   titulo: "Asesoramiento dietético",
-  precio: "20",
+  precio: "20 €",
   texto: "Una buena alimentación te hara sentir bien y mejorar tu cuerpo.",
   servicio: "dietetico",
   link:"/servicios/dietetico"
@@ -65,7 +65,7 @@ const gDietetico = {
 const gBonos = {
   imagen: ImgBonos,
   titulo: "Bonos",
-  precio: "76",
+  precio: "76 €",
   texto: "Ahorra o regala bienestar. Te lo agradecerán.",
   servicio: "bonos",
   link:"/servicios/bonos"
@@ -75,7 +75,7 @@ const gBonos = {
 const gRejuvenecimiento = {
   imagen: ImgFacial,
   titulo: "Rejuvenecimiento facial laser",
-  precio: "60",
+  precio: "60 €",
   texto: "Limpieza de anomalías de la piel, envejecimiento o manchas solares.",
   servicio: "rejuvenecimiento",
   link:"/servicios/facial"
@@ -85,7 +85,7 @@ const gRejuvenecimiento = {
 const gTatoo = {
   imagen: ImgTatoo,
   titulo: "Sesión de eliminación de tatuajes",
-  precioCarrusel: "60 / 80",
+  precioCarrusel: "60 / 80 €",
   texto: "Tatuajes de todo tamaño y color.",
   servicio: "tatoo",
   link:"/servicios/tatoo"

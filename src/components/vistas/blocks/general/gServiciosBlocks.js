@@ -1,11 +1,20 @@
 import React from 'react';
 
+import Hidden from '@material-ui/core/Hidden';
+
 import GServiciosBlock from './gServiciosBlock';
+import { Typography } from '@material-ui/core';
 
 export default function GServiciosBlocks({datos}) {
+
  
   return(
-    <>      
+    <>  
+      <Hidden smUp>  
+        <Typography variant ="h4" style={{marginLeft:"1em", marginBottom:"0.5em"}}>
+          Nuestros Servicios
+        </Typography>
+      </Hidden>
       {/*---Bloque Quiromasaje---*/}
       <GServiciosBlock datos={datos.gQuiromasaje} left={true}/>
       {/*---Bloque Osteopatía---*/}
