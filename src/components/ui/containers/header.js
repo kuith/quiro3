@@ -79,6 +79,9 @@ const useStyles = makeStyles(theme=>({
   },
   drawerIconContainer:{
     marginLeft: "auto",
+    "&:hover": {
+      backgroundColor: "transparent"
+    }
   },
   drawer:{
     backgroundColor:theme.palette.primary.main,
@@ -89,7 +92,9 @@ const useStyles = makeStyles(theme=>({
     opacity: 0.7
   },
   drawerItemSelected: {
-    opacity: 1,
+    "& .MuiListItemText-root": {
+      opacity: 1
+    }
   }
 }))
 
@@ -140,7 +145,7 @@ export default function Header({datMenu, listaDrawer}){
       onClick={()=>setOpenDrawer(false)}
     >
       <ListItemText 
-        classes={value === index ? [classes.drawerItem, classes.drawerItemSelected] : 
+        className={value === index ? [classes.drawerItem, classes.drawerItemSelected] : 
         classes.drawerItem}  
         disableTypography
       >

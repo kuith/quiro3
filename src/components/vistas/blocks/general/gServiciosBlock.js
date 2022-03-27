@@ -32,12 +32,12 @@ export default function GServiciosBlock({datos, left}) {
   const theme = useTheme();
 
   const matchesSm = useMediaQuery(theme.breakpoints.down("sm"));
-  const matchesmd = useMediaQuery(theme.breakpoints.down("md"));
+  //const matchesmd = useMediaQuery(theme.breakpoints.down("md"));
   const matchesXs = useMediaQuery(theme.breakpoints.down("xs"));
 
-  console.log("Md: " + matchesmd);
+  /* console.log("Md: " + matchesmd);
   console.log("Sm: " + matchesSm);
-  console.log("Xs: " + matchesXs);
+  console.log("Xs: " + matchesXs); */
 
   const alineacion = left;
   

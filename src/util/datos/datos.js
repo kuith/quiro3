@@ -15,6 +15,7 @@ const listaDrawer = [
   {nombre: "Inicio", link: "/" },
   {nombre: "Servicios", link: "/servicios/serviciosGeneral" },
   {nombre: "Contacto", link: "/contacto" },
+  {nombre: "Instalaciones", link: "/instalaciones" },
   
 ]
 
