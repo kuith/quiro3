@@ -72,7 +72,7 @@ export default function CorreoContacto({datos}) {
 
   const [alert, setAlert] = useState({open: false, message:"", backgroundColor: ""});
 
-  const [alertMessage, setAlertMesssage] = useState("");
+  //const [alertMessage, setAlertMesssage] = useState("");
 
   const onChange = event =>{
     let valid;

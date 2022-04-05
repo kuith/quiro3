@@ -30,7 +30,7 @@ export default function ContactoContainer({datos, blockMapa, blockHorario, block
   const classes = useStyles();
   const theme = useTheme();
   const matchesMd = useMediaQuery(theme.breakpoints.down("md"));
-  const matchesSm = useMediaQuery(theme.breakpoints.down("sm"));
+  //const matchesSm = useMediaQuery(theme.breakpoints.down("sm"));
   console.log(matchesMd);
 
   const titulo = (
