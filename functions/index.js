@@ -22,7 +22,7 @@ exports.sendMail = functions.https.onRequest((request, response) => {
     const {nombre, correo, mensaje} = request.query;
     mailOptions = {
       from: "Quirodiet",
-      to: "kuithsteam@gmail.com",
+      to: "josesevilla.herrera@hotmail.com",
       subject: "Mensaje enviado correctamente",
       html: `
         <p style="font-size: 16px"> De: ${nombre}</p>
