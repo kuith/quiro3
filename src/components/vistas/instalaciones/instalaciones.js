@@ -12,7 +12,7 @@ export default function Instalaciones({datos}) {
   const itemData = datos
 
   const imagenes = itemData.map((item)=>(
-    <Grid item style={{marginBottom:"1em", marginLeft:"1em", marginRight:"1em"}}>
+    <Grid item style={{marginBottom:"1em", marginLeft:"1em", marginRight:"1em"}} key={item.title}>
       <img src = {item.img} alt={item.title} style={{width:matchesXs ? "350px" : "100%"}}/>
     </Grid>
   ));
