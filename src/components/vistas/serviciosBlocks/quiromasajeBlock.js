@@ -42,14 +42,14 @@ export default function QuiromasajeBlock({datos}) {
         Masaje recuperador de lesiones + osteopatía (a criterio profesional): 
         <span className={classes.precio}>{datos.quiromasajeRecuperador} € </span>.
       </Typography>
-      <Typography variant="body1" paragraph>
+      {/* <Typography variant="body1" paragraph>
         Masaje deportistas + osteopatía (a criterio del profesional) con descuento ADM y GO FIT: 
         <span className={classes.precio}>{datos.quiromasajeDeportistas} € </span>.
       </Typography>
       <Typography variant="body1" paragraph>
         Masaje jubilados + osteopatia (a criterio del profesional) con descuento CARNET JUBILADO: 
         <span className={classes.precio}>{datos.quiromasajeJubilados} € </span>.
-      </Typography>
+      </Typography> */}
       <Typography variant="body1" paragraph>
         OTROS: Llame e informese, estaremos encantados de atenderle.
       </Typography>
