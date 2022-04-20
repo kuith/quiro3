@@ -1,8 +1,8 @@
 import React from 'react';
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
-import { useMediaQuery } from '@material-ui/core';
+//import { useMediaQuery } from '@material-ui/core';
 
 
 const useStyles = makeStyles(theme=>({
@@ -28,10 +28,10 @@ const useStyles = makeStyles(theme=>({
 
 export default function ContactoContainer({datos, blockMapa, blockHorario, blockCorreo}) {
   const classes = useStyles();
-  const theme = useTheme();
-  const matchesMd = useMediaQuery(theme.breakpoints.down("md"));
+  //const theme = useTheme();
+  //const matchesMd = useMediaQuery(theme.breakpoints.down("md"));
   //const matchesSm = useMediaQuery(theme.breakpoints.down("sm"));
-  console.log(matchesMd);
+  //console.log(matchesMd);
 
   const titulo = (
     <Grid item className={classes.rowContainer}>
