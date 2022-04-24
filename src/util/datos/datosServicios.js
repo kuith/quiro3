@@ -51,7 +51,7 @@ const deportivo = {
 const dietetico = {
     titulo: "Asesoramiento dietético",
     imagen: ImgServiciosDietetico,
-    subtitulo1:"¿Quieres ganar o perder peso? Ven a vernos no te arrepentiras.",
+    subtitulo1:"¿Quieres ganar o perder peso? Ven a vernos no te arrepentirás.",
     subtextoImagen:"",
     primera: 25,
     seguimiento: 20

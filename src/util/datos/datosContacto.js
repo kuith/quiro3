@@ -9,7 +9,7 @@ const contacto = {
   horarioSabado:"Sábados de 08:00 a 14:00",
   aviso:"En caso de no avisar o no acudir a la sesión se le restará del bono.",
   pedir:"Pedir citas previas por teléfono o whatsapp.",
-  parking:"1 hora de aparcamiento gratuito en parking público de la Plaza mayor (consultar)."
+  parking:"1 hora de aparcamiento gratuito en parking público de la Plaza Mayor (consultar)."
 }
 export {contacto}
 
