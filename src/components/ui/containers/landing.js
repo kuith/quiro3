@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 
 import { useMediaQuery } from '@material-ui/core';
 
-import ImagenFondo3 from '../../../util/images/landing/landing_03.png';
+import ImagenFondo3 from '../../../util/quiro/images/landing/landing_03.png';
 import LandingBlock from '../../vistas/blocks/landing/landingBlock';
 
 

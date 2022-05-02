@@ -64,6 +64,7 @@ function App() {
         <Header datMenu={menuServicios} listaDrawer={listaDrawer}/>
         <Routes>
           <Route exact path="/" element={<Landing datos={datosLanding} />} />
+          <Route exact path="/quiro" element={<Landing datos={datosLanding} />} />
           <Route exact path="/servicios/serviciosGeneral" 
             element={<BlocksContainer 
               blocks={<GServiciosBlocks 

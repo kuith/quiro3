@@ -1,11 +1,11 @@
-import ImgServiciosQuiromasaje from '../images/servicios/quiromasaje.png';
-import ImgServiciosOsteopatia from '../images/servicios/osteopatia.png';
-import ImgServiciosPresoterapia from '../images/servicios/presoterapia.png';
-import ImgServiciosDeportivo from '../images/servicios/deportivo.png';
-import ImgServiciosDietetico from '../images/servicios/dietetico.png';
-import ImgServiciosBonos from '../images/servicios/bonos.png';
-import ImgServiciosFacial from '../images/servicios/facial.png';
-import ImgServiciosTatoo from '../images/servicios/tatoo.png';
+import ImgServiciosQuiromasaje from '../quiro/images/servicios/quiromasaje.png';
+import ImgServiciosOsteopatia from '../quiro/images/servicios/osteopatia.png';
+import ImgServiciosPresoterapia from '../quiro/images/servicios/presoterapia.png';
+import ImgServiciosDeportivo from '../quiro/images/servicios/deportivo.png';
+import ImgServiciosDietetico from '../quiro/images/servicios/dietetico.png';
+import ImgServiciosBonos from '../quiro/images/servicios/bonos.png';
+import ImgServiciosFacial from '../quiro/images/servicios/facial.png';
+import ImgServiciosTatoo from '../quiro/images/servicios/tatoo.png';
 
 const quiromasaje = {
     titulo:"Quiromasaje",

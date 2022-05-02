@@ -24,7 +24,7 @@ import ListItem from '@material-ui/core/ListItem';
 //import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import Logo from '../../../util/images/logo.svg';
+import Logo from '../../../util/quiro/images/logo.svg';
 
 function ElevationScroll(props) {
   const { children } = props;

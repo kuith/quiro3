@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
-import footerDecotarion from '../../../util/images/FooterDecoration.svg';
+import footerDecotarion from '../../../util/quiro/images/FooterDecoration.svg';
 
 const useStyles = makeStyles(theme=>({
   footer:{

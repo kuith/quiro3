@@ -1,11 +1,11 @@
-import ImgQuiromasaje from '../images/serviciosGeneral/quiromasaje.png'
-import ImgOsteopatia from '../images/serviciosGeneral/osteopatia.png'
-import ImgPresoterapia from '../images/serviciosGeneral/presoterapia.png'
-import ImgDeportivo from '../images/serviciosGeneral/deportivo.png'
-import ImgDietetico from '../images/serviciosGeneral/dietetico.png'
-import ImgBonos from '../images/serviciosGeneral/bonos.png'
-import ImgFacial from '../images/serviciosGeneral/facial.png'
-import ImgTatoo from '../images/serviciosGeneral/tatoo.png'
+import ImgQuiromasaje from '../quiro/images/serviciosGeneral/quiromasaje.png'
+import ImgOsteopatia from '../quiro/images/serviciosGeneral/osteopatia.png'
+import ImgPresoterapia from '../quiro/images/serviciosGeneral/presoterapia.png'
+import ImgDeportivo from '../quiro/images/serviciosGeneral/deportivo.png'
+import ImgDietetico from '../quiro/images/serviciosGeneral/dietetico.png'
+import ImgBonos from '../quiro/images/serviciosGeneral/bonos.png'
+import ImgFacial from '../quiro/images/serviciosGeneral/facial.png'
+import ImgTatoo from '../quiro/images/serviciosGeneral/tatoo.png'
 
 
 //Quiromasaje
